@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Task Management API",
+    title="Task Managment API",
     description="A RESTful API for managing tasks with full CRUD operations",
     version="1.0.0",
     lifespan=lifespan,
@@ -37,7 +37,7 @@ def health_check():
 def root():
     """Root endpoint."""
     return {
-        "message": "Welcome to Task Management API",
+        "message": "Welcome to Task Managment API",
         "docs": "/docs",
         "health": "/health"
     }
