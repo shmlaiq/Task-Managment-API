@@ -1,11 +1,45 @@
 ---
 name: fastapi
-description: Comprehensive FastAPI development guide from beginner to production. Use when building REST APIs, web backends, microservices, or any Python web application with FastAPI. Covers project setup, routing, Pydantic models, async database operations, authentication (JWT/OAuth2), dependency injection, background tasks, WebSockets, testing, and production deployment. Trigger for tasks like "create a FastAPI app", "build an API", "add authentication", "connect database", "deploy FastAPI", or any FastAPI-related development.
+description: Comprehensive FastAPI development guide from beginner to production. This skill should be used when building REST APIs, web backends, microservices, or any Python web application with FastAPI. Covers project setup, routing, Pydantic models, async database operations, authentication (JWT/OAuth2), dependency injection, background tasks, WebSockets, testing, and production deployment. Triggers on tasks like "create a FastAPI app", "build an API", "add authentication", "connect database", "deploy FastAPI", or any FastAPI-related development.
 ---
 
 # FastAPI Development Guide
 
 Build modern, fast Python APIs from hello world to production-ready applications.
+
+## Before Implementation
+
+Gather context to ensure successful implementation:
+
+| Source | Gather |
+|--------|--------|
+| **Codebase** | Existing project structure, database setup, auth patterns, dependencies |
+| **Conversation** | User's specific API requirements, preferred database, deployment target |
+| **Skill References** | Relevant patterns from `references/` directory |
+| **User Guidelines** | Project-specific conventions, naming standards |
+
+## Clarifications
+
+### Required (ask if not clear)
+1. **Project type?** Simple API / Production application / Microservice
+2. **Database?** PostgreSQL / SQLite / None / Other
+3. **Authentication needed?** JWT / API Key / OAuth2 / None
+
+### Optional (ask if relevant)
+4. **Deployment target?** Docker / Cloud (Railway/Render/Fly.io) / Local only
+5. **Testing approach?** TDD / Post-implementation / None
+
+## Official Documentation
+
+| Resource | URL | Use For |
+|----------|-----|---------|
+| FastAPI Docs | https://fastapi.tiangolo.com | Official reference, tutorials |
+| Pydantic Docs | https://docs.pydantic.dev | Model validation, settings |
+| SQLAlchemy Docs | https://docs.sqlalchemy.org | Database ORM patterns |
+| Uvicorn | https://www.uvicorn.org | ASGI server configuration |
+| Alembic | https://alembic.sqlalchemy.org | Database migrations |
+
+> **Version Note**: This skill follows FastAPI 0.100+ and Pydantic v2 patterns. For older versions, check official migration guides.
 
 ## Quick Start
 
@@ -165,6 +199,24 @@ async def item_not_found_handler(request, exc):
 
 **Deploying to production?** → See [references/deployment.md](references/deployment.md)
 
+### Searching Large References
+
+For specific patterns in reference files, use grep:
+
+```bash
+# Authentication patterns
+grep -n "JWT\|OAuth2\|token\|password" references/authentication.md
+
+# Database patterns
+grep -n "async\|session\|CRUD\|relationship" references/database.md
+
+# Testing patterns
+grep -n "fixture\|mock\|async_client" references/testing.md
+
+# Deployment patterns
+grep -n "Docker\|gunicorn\|nginx" references/deployment.md
+```
+
 ## Common Patterns
 
 ### Router Organization
@@ -255,6 +307,17 @@ uv add "pydantic[email]"
 uv add pytest pytest-asyncio httpx --dev
 ```
 
+## Common Mistakes
+
+| Mistake | Why It's Wrong | Fix |
+|---------|----------------|-----|
+| `allow_origins=["*"]` in production | Security risk, allows any origin | Use specific domains |
+| Hardcoding `SECRET_KEY` | Exposed in version control | Use environment variables |
+| Missing `response_model` | May leak sensitive fields (password) | Always filter responses |
+| Forgetting `await` in async DB | Coroutine never executes | Add `await` to async calls |
+| No input validation | SQL injection, invalid data | Use Pydantic models |
+| Sync operations in async routes | Blocks event loop | Use async libraries |
+
 ## Quick Reference
 
 | Need | Solution |
@@ -269,3 +332,26 @@ uv add pytest pytest-asyncio httpx --dev
 | Return specific model | `response_model=UserResponse` |
 | Background work | `BackgroundTasks` |
 | WebSocket | `@app.websocket("/ws")` |
+
+## Before Delivery Checklist
+
+### Code Quality
+- [ ] All endpoints have appropriate HTTP status codes (201 for create, 204 for delete)
+- [ ] Sensitive data filtered via `response_model` (no passwords in responses)
+- [ ] Input validation using Pydantic models
+- [ ] Error handling with proper `HTTPException` messages
+
+### Security
+- [ ] SECRET_KEY from environment variable
+- [ ] CORS configured with specific origins (not `*`)
+- [ ] Authentication on protected routes
+- [ ] No hardcoded credentials
+
+### Testing
+- [ ] Tests written for all endpoints
+- [ ] Error cases covered (404, 401, 422)
+- [ ] Tests pass: `uv run pytest`
+
+### Documentation
+- [ ] OpenAPI docs accessible at `/docs`
+- [ ] Endpoints have descriptive tags and summaries

@@ -1,12 +1,46 @@
 ---
 name: pytest
-description: Python testing with pytest framework. Use when user asks to write tests, create test files, run tests, fix failing tests, add test coverage, set up fixtures, mock dependencies, or do any testing-related work for Python code. Triggers on requests like "write tests for this", "add unit tests", "test this function", "fix the failing test", "run pytest", "set up test fixtures", or "mock this dependency".
+description: Python testing with pytest framework. This skill should be used when user asks to write tests, create test files, run tests, fix failing tests, add test coverage, set up fixtures, mock dependencies, or do any testing-related work for Python code. Triggers on requests like "write tests for this", "add unit tests", "test this function", "fix the failing test", "run pytest", "set up test fixtures", or "mock this dependency".
 allowed-tools: Bash(pytest:*), Bash(python:*), Read, Glob, Grep
 ---
 
 # Pytest Testing Skill
 
 Write and run Python tests using pytest with Test-Driven Development (TDD).
+
+## Before Implementation
+
+Gather context to ensure successful test implementation:
+
+| Source | Gather |
+|--------|--------|
+| **Codebase** | Existing test structure, conftest.py patterns, fixtures in use |
+| **Conversation** | What code to test, expected behavior, edge cases |
+| **Skill References** | Testing patterns from `references/` directory |
+| **User Guidelines** | Project testing conventions, coverage requirements |
+
+## Clarifications
+
+### Required (ask if not clear)
+1. **Test type?** Unit tests / Integration tests / End-to-end tests
+2. **Framework being tested?** FastAPI / Django / CLI / Pure Python
+3. **Async code?** Yes (need pytest-asyncio) / No
+
+### Optional (ask if relevant)
+4. **Coverage target?** 80% / 90% / 100% / No requirement
+5. **Mocking needed?** External APIs / Database / File system
+
+## Official Documentation
+
+| Resource | URL | Use For |
+|----------|-----|---------|
+| Pytest Docs | https://docs.pytest.org | Official reference |
+| pytest-asyncio | https://pytest-asyncio.readthedocs.io | Async testing |
+| pytest-cov | https://pytest-cov.readthedocs.io | Coverage reports |
+| pytest-mock | https://pytest-mock.readthedocs.io | Mocking utilities |
+| HTTPX Testing | https://www.python-httpx.org/async/ | FastAPI async testing |
+
+> **Version Note**: This skill follows pytest 7.x+ patterns. For older versions, check migration guides.
 
 ## TDD Workflow (Red-Green-Refactor)
 
@@ -245,3 +279,37 @@ See `references/ci_cd.md` for complete examples.
 | `collected 0 items` | Check test file/function naming |
 
 See `references/troubleshooting.md` for detailed solutions.
+
+## Common Mistakes
+
+| Mistake | Why It's Wrong | Fix |
+|---------|----------------|-----|
+| Testing implementation, not behavior | Brittle tests that break on refactor | Test inputs → outputs |
+| Missing `@pytest.mark.asyncio` | Async test silently passes | Add marker for async tests |
+| Hardcoded test data | Tests fail in different environments | Use fixtures and factories |
+| Not using `conftest.py` | Duplicate fixtures across files | Centralize shared fixtures |
+| Ignoring test isolation | Tests affect each other | Use fresh fixtures per test |
+| Mocking too much | Tests don't catch real bugs | Mock only external dependencies |
+
+## Before Delivery Checklist
+
+### Test Quality
+- [ ] Tests follow TDD (written before implementation)
+- [ ] Each test tests one thing (single assertion focus)
+- [ ] Tests are independent (can run in any order)
+- [ ] Edge cases covered (empty, null, boundaries)
+
+### Coverage
+- [ ] Coverage meets project requirements
+- [ ] Critical paths have 100% coverage
+- [ ] Run: `uv run pytest --cov --cov-report=term-missing`
+
+### Organization
+- [ ] Tests mirror source structure
+- [ ] Shared fixtures in `conftest.py`
+- [ ] Descriptive test names (`test_<action>_<scenario>_<expected>`)
+
+### CI Ready
+- [ ] All tests pass: `uv run pytest`
+- [ ] No hardcoded paths or credentials
+- [ ] Async tests properly marked

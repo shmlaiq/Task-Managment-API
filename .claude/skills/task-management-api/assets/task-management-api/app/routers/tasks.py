@@ -38,7 +38,8 @@ def read_task(task_id: int, session: Session = Depends(get_session)):
     """Get a specific task by ID."""
     task = session.get(Task, task_id)
     if not task:
-        raise HTTPException(status_code=404, detail="Task not found")
+        raise HTTPException(status_code=404, detail=f"Task-ID # {task_id} not found...")
+    print(f"Task ID: {task_id} not found, returning 404.")
     return task
 
 
@@ -51,7 +52,8 @@ def update_task(
     """Update a task (partial update)."""
     task = session.get(Task, task_id)
     if not task:
-        raise HTTPException(status_code=404, detail="Task not found")
+        raise HTTPException(status_code=404, detail=f"Task-ID # {task_id} not found...")
+    print(f"Task ID: {task_id} not found, returning 404.")
 
     task_data = task_update.model_dump(exclude_unset=True)
     task.sqlmodel_update(task_data)
@@ -67,7 +69,9 @@ def delete_task(task_id: int, session: Session = Depends(get_session)):
     """Delete a task."""
     task = session.get(Task, task_id)
     if not task:
-        raise HTTPException(status_code=404, detail="Task not found")
+        raise HTTPException(status_code=404, detail=f"Task-ID # {task_id} not found...")
+    print(f"Task ID: {task_id} not found, returning 404.")
     session.delete(task)
     session.commit()
+    print(f"Task ID: {task_id} has been deleted.")
     return None

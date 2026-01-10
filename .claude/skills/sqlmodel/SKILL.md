@@ -1,11 +1,44 @@
 ---
 name: sqlmodel
-description: SQLModel - Pydantic + SQLAlchemy combined. Use when building FastAPI apps with database, creating ORM models, data validation with database persistence, or any Python project needing both validation and ORM. Triggers on "create database model", "add SQLModel", "database with FastAPI", "ORM model", or any SQLModel-related development.
+description: SQLModel - Pydantic + SQLAlchemy combined. This skill should be used when building FastAPI apps with database, creating ORM models, data validation with database persistence, or any Python project needing both validation and ORM. Triggers on "create database model", "add SQLModel", "database with FastAPI", "ORM model", or any SQLModel-related development.
 ---
 
 # SQLModel - Pydantic + SQLAlchemy in One
 
 One model for both **validation** AND **database**. Created by Sebastián Ramírez (FastAPI creator).
+
+## Before Implementation
+
+Gather context to ensure successful implementation:
+
+| Source | Gather |
+|--------|--------|
+| **Codebase** | Existing models, database setup, relationship patterns |
+| **Conversation** | Entity requirements, relationships needed, validation rules |
+| **Skill References** | Patterns from `references/` directory |
+| **User Guidelines** | Naming conventions, project structure preferences |
+
+## Clarifications
+
+### Required (ask if not clear)
+1. **Database?** PostgreSQL / SQLite / MySQL
+2. **Async needed?** Yes (asyncpg/aiosqlite) / No (sync)
+3. **Relationships?** One-to-Many / Many-to-Many / None
+
+### Optional (ask if relevant)
+4. **Migrations?** Alembic / Manual / None
+5. **Framework?** FastAPI / Standalone Python
+
+## Official Documentation
+
+| Resource | URL | Use For |
+|----------|-----|---------|
+| SQLModel Docs | https://sqlmodel.tiangolo.com | Official reference |
+| SQLAlchemy Docs | https://docs.sqlalchemy.org | Advanced ORM features |
+| Pydantic Docs | https://docs.pydantic.dev | Validation patterns |
+| Alembic Docs | https://alembic.sqlalchemy.org | Database migrations |
+
+> **Version Note**: This skill follows SQLModel 0.0.16+ and Pydantic v2 patterns.
 
 ## TDD Workflow (Red-Green-Refactor)
 
@@ -325,3 +358,38 @@ uv run pytest tests/ --cov=app --cov-report=term-missing
 | Add | `session.add(obj); session.commit()` |
 | Delete | `session.delete(obj); session.commit()` |
 | Refresh | `session.refresh(obj)` |
+
+## Common Mistakes
+
+| Mistake | Why It's Wrong | Fix |
+|---------|----------------|-----|
+| Missing `table=True` | Model won't create DB table | Add `table=True` to DB models |
+| `id: int` without `None` | Can't create new records | Use `id: int \| None = Field(default=None, ...)` |
+| Forgetting `session.commit()` | Changes not persisted | Always commit after add/update/delete |
+| Not using `model_validate()` | Type conversion issues | Use `Hero.model_validate(hero_create)` |
+| Missing `session.refresh()` | Stale data after commit | Refresh to get DB-generated values |
+| Circular relationship imports | ImportError | Use `TYPE_CHECKING` and string annotations |
+
+## Before Delivery Checklist
+
+### Model Quality
+- [ ] All DB models have `table=True`
+- [ ] Primary keys use `Field(default=None, primary_key=True)`
+- [ ] Separate schemas: Base, Create, Read, Update
+- [ ] Indexes on frequently queried fields
+
+### Database Operations
+- [ ] All operations use `session.commit()`
+- [ ] New objects refreshed after commit
+- [ ] Proper error handling for not found
+- [ ] Session dependency yields and closes
+
+### Relationships
+- [ ] Foreign keys properly defined
+- [ ] `Relationship()` configured both sides
+- [ ] Eager loading where needed (`selectinload`)
+
+### Testing
+- [ ] In-memory SQLite for tests
+- [ ] Dependency override for test session
+- [ ] Tests pass: `uv run pytest`

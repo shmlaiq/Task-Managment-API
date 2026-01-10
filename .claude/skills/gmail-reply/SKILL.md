@@ -1,11 +1,44 @@
 ---
 name: gmail-reply
-description: Gmail email workflow automation for reading inbox emails, drafting professional replies, and sending with user approval. Use when user wants to (1) Read and process Gmail inbox emails, (2) Draft replies to emails, (3) Send approved email replies, (4) Manage email drafts. Automatically filters spam emails and requires explicit user approval before sending any reply. Includes security checks to prevent sensitive information leakage.
+description: Gmail email workflow automation for reading inbox emails, drafting professional replies, and sending with user approval. This skill should be used when user wants to (1) Read and process Gmail inbox emails, (2) Draft replies to emails, (3) Send approved email replies, (4) Manage email drafts. Automatically filters spam emails and requires explicit user approval before sending any reply. Includes security checks to prevent sensitive information leakage.
 ---
 
 # Gmail Reply Workflow
 
 Automated Gmail workflow for reading emails, drafting replies, and sending with user approval.
+
+## Before Implementation
+
+Gather context before processing emails:
+
+| Source | Gather |
+|--------|--------|
+| **MCP Server** | Gmail MCP server configured and authenticated |
+| **Conversation** | User's reply preferences, tone, signature style |
+| **User Guidelines** | Response templates, auto-reply rules, blocked senders |
+| **Security** | Sensitive data patterns to block, compliance requirements |
+
+## Clarifications
+
+### Required (ask before processing)
+1. **Reply tone?** Professional / Casual / Match sender's tone
+2. **Include signature?** Yes / No / Use default
+3. **Send immediately?** Yes, if approved / Always save as draft first
+
+### Optional
+4. **Filter by sender?** Specific senders only / All unread
+5. **Priority handling?** Urgent first / Chronological order
+
+## Official Documentation
+
+| Resource | URL | Use For |
+|----------|-----|---------|
+| Gmail API Docs | https://developers.google.com/gmail/api | Official reference |
+| OAuth2 Guide | https://developers.google.com/identity/protocols/oauth2 | Authentication |
+| Gmail API Quotas | https://developers.google.com/gmail/api/reference/quota | Rate limits |
+| MCP Servers | https://modelcontextprotocol.io | MCP integration |
+
+> **Security Note**: This skill NEVER sends emails without explicit user approval. All replies are security-scanned before sending.
 
 ## Prerequisites
 
@@ -155,3 +188,40 @@ For proper reply threading:
 ## API Reference
 
 See [references/gmail-api.md](references/gmail-api.md) for complete Gmail API documentation and code examples.
+
+## Common Mistakes
+
+| Mistake | Why It's Wrong | Fix |
+|---------|----------------|-----|
+| Sending without approval | Security/privacy violation | ALWAYS get explicit user approval |
+| Processing spam emails | Wastes time, potential security risk | Filter with `-in:spam -in:trash` |
+| Missing thread headers | Reply appears as new email | Set `In-Reply-To` and `References` headers |
+| Including sensitive data | Privacy breach, security risk | Run security scan before presenting draft |
+| Ignoring rate limits | API quota exceeded, service blocked | Implement exponential backoff |
+| No error handling | Silent failures, lost emails | Handle API errors gracefully |
+
+## Before Delivery Checklist
+
+### Security (CRITICAL)
+- [ ] User approval required before any send
+- [ ] Sensitive data scan implemented
+- [ ] Spam emails filtered out
+- [ ] No credentials/PII in drafts
+
+### Email Quality
+- [ ] Proper threading (In-Reply-To, References headers)
+- [ ] Subject prefixed with "Re:"
+- [ ] Appropriate tone for context
+- [ ] Signature included if configured
+
+### Error Handling
+- [ ] API errors handled with retry
+- [ ] Auth failures prompt re-authentication
+- [ ] Network issues queued for retry
+- [ ] Failed sends saved to drafts
+
+### User Experience
+- [ ] Clear draft preview before sending
+- [ ] Easy approve/edit/discard options
+- [ ] Confirmation after successful send
+- [ ] Audit trail of sent emails

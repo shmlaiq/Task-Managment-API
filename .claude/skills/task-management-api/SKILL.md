@@ -1,12 +1,45 @@
 ---
 name: task-management-api
-description: Task Management REST API built with FastAPI, SQLModel, and UV using Test-Driven Development. Full CRUD operations for tasks with priority, status, due dates, and filtering. Use when building task/todo APIs, learning TDD with FastAPI, or as a reference for SQLModel + FastAPI integration.
+description: Task Management REST API built with FastAPI, SQLModel, and UV using Test-Driven Development. This skill should be used when building task/todo APIs, learning TDD with FastAPI, or as a reference for SQLModel + FastAPI integration.
 allowed-tools: Bash(uv:*), Bash(pytest:*), Bash(python:*), Read, Glob, Grep, Write, Edit
 ---
 
 # Task Management API
 
 A production-ready Task Management REST API built with **FastAPI + SQLModel + UV** using **Test-Driven Development (TDD)**.
+
+## Before Implementation
+
+Gather context before building or extending this API:
+
+| Source | Gather |
+|--------|--------|
+| **Codebase** | Existing models in `app/models/`, router patterns, test fixtures |
+| **Conversation** | New features needed, custom fields, filtering requirements |
+| **Assets** | Reference implementation in `assets/task-management-api/` |
+| **User Guidelines** | Database preference (Neon/SQLite), deployment target |
+
+## Clarifications
+
+### Required (ask if extending)
+1. **New entity?** Tasks only / Add users / Add categories
+2. **Database?** Neon PostgreSQL / SQLite (local dev)
+3. **Authentication?** JWT / API Key / None
+
+### Optional
+4. **Additional fields?** Tags / Attachments / Comments
+5. **Filtering needs?** By status / By priority / By date range
+
+## Official Documentation
+
+| Resource | URL | Use For |
+|----------|-----|---------|
+| FastAPI Docs | https://fastapi.tiangolo.com | API patterns |
+| SQLModel Docs | https://sqlmodel.tiangolo.com | ORM models |
+| Neon Docs | https://neon.tech/docs | Serverless PostgreSQL |
+| Pytest Docs | https://docs.pytest.org | Testing |
+
+> **Version Note**: Built with FastAPI 0.100+, SQLModel 0.0.16+, Python 3.12+.
 
 ## Features
 
@@ -188,3 +221,37 @@ uv run ptw -- -v
 uv run pytest --cov=app --cov-report=html
 open htmlcov/index.html
 ```
+
+## Common Mistakes
+
+| Mistake | Why It's Wrong | Fix |
+|---------|----------------|-----|
+| Missing `.env` file | Database connection fails | Copy `.env.example` to `.env` |
+| Not running migrations | Tables don't exist | Tables auto-create on startup |
+| Wrong status code for POST | Should be 201, not 200 | Use `status_code=201` |
+| Missing 404 handling | Returns 500 on not found | Check `session.get()` result |
+| Forgetting `session.refresh()` | Response missing DB-generated fields | Refresh after commit |
+| Tests affecting each other | Flaky tests | Use fresh DB per test |
+
+## Before Delivery Checklist
+
+### API Quality
+- [ ] All CRUD endpoints working
+- [ ] Proper HTTP status codes (201, 204, 404)
+- [ ] Input validation via Pydantic
+- [ ] Error responses are consistent
+
+### Database
+- [ ] `.env` configured for target database
+- [ ] Models have proper indexes
+- [ ] Timestamps auto-generated
+
+### Testing
+- [ ] All tests pass: `uv run pytest -v`
+- [ ] Coverage acceptable: `uv run pytest --cov=app`
+- [ ] TDD followed (tests written first)
+
+### Documentation
+- [ ] Swagger UI accessible at `/docs`
+- [ ] Endpoints have proper tags
+- [ ] Request/response examples visible
