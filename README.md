@@ -31,6 +31,7 @@ A production-ready **Task Management REST API** built with modern Python stack u
 | [UV](https://github.com/astral-sh/uv) | Fast Python package manager |
 | [pytest](https://pytest.org/) | Testing framework |
 
+
 ## Quick Start
 
 ### 1. Clone the Repository
@@ -79,6 +80,13 @@ uv run uvicorn app.main:app --reload
 
 - **Swagger UI:** http://localhost:8000/docs
 - **ReDoc:** http://localhost:8000/redoc
+
+
+### 6. Task Managment API Vedio
+- #### [Watch Screen Recording](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy82MTQyOThkOTE0MGNiZWZjL0lnQnd2SlBIM0FvS1I1MjUxaFJ2M2pvU0FlN0U4eTBkWFBOSDQtUEZmWU52Yk00P2U9MzZLajZn&cid=614298D9140CBEFC&id=614298D9140CBEFC%21s00a325ce5be44ede94a23dc9c9473ea6&parId=614298D9140CBEFC%21sfe71bc07ffd5472f9260421fe81daaf3&o=OneUp)
+
+
+
 
 ## API Endpoints
 
