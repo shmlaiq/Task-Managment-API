@@ -1,0 +1,54 @@
+# Git
+.git
+.gitignore
+
+# Python
+.venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Testing
+.pytest_cache
+.coverage
+htmlcov
+.tox
+.nox
+
+# Type checking
+.mypy_cache
+.pytype
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Docker
+Dockerfile*
+compose*.yaml
+docker-compose*.yaml
+.docker
+
+# Documentation (keep README)
+*.md
+!README.md
+
+# Build artifacts
+dist
+build
+*.egg-info
+
+# Secrets
+secrets/
+*.pem
+*.key
