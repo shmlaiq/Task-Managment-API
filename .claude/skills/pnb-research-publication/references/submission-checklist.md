@@ -128,7 +128,8 @@ pdfinfo paper.pdf | grep -E "Author|Creator|Producer"
 
 ## 7. Ethics & Compliance
 
-- [ ] Ethics statement included if required by venue (human subjects, sensitive data, AI-generated content disclosure)
+- [ ] **[BLOCKER for any IEEE venue if the draft used AI assistance]** AI-use disclosure: before delivery, WebFetch the *specific target venue's own current* author-guidelines page (not a cached memory of another IEEE venue's policy — policies differ by venue and change over time) and check its stance on disclosing AI-generated text. IEEE Access's page (verified 2026-08-20, ieeeaccess.ieee.org/authors/submission-guidelines/) requires exactly this: "The use of artificial intelligence (AI)–generated text in an article shall be disclosed in the acknowledgements section. The sections of the paper that use AI-generated text shall have a citation to the AI system used to generate the text." Where a policy like this applies, add to the Acknowledgments section: which sections were AI-drafted, which AI system was used (name it — do not omit), and an explicit statement that the human author is fully accountable for all content/citations/claims and that no AI system is credited as an author. Do this by default whenever the skill produced substantial draft text, not only when the user asks.
+- [ ] Ethics statement included if required by venue (human subjects, sensitive data)
 - [ ] Dataset licenses confirmed (you are allowed to use the data)
 - [ ] No copyright violations (all quoted text properly attributed)
 - [ ] Potential negative societal impacts discussed (required by NeurIPS, ICML, and others)
@@ -214,8 +215,11 @@ pdftotext main.pdf - | wc -w
 | IEEE Letters | 4–5 pages | Included | Single-blind |
 | NeurIPS | 9 pages | Unlimited | Double-blind |
 | ICML | 8 pages | Unlimited | Double-blind |
+| IEEE Software (magazine, ≠ research journal) | ≤4,200 words incl. 250/figure+table | ≤15 | Practitioner voice, not blind-reviewed; requires a "Three Actionable Insights" box + author photo; verified 2026-08-20 |
 
-**Always check the current CFP** — limits change between years.
+**Always check the current CFP** — limits change between years. Do not assume every table row above still holds; re-fetch before relying on any number for a real submission decision.
+
+**Practitioner/magazine venues are a different animal from research journals and conferences.** IEEE Software is the reference case: word-count-constrained closer to a long-form article than a paper, requires extra structural elements this checklist's Section 2 doesn't cover (an actionable-insights callout, author photos), and expects problem-first practitioner voice rather than a literature-review-led academic structure. If the target venue is magazine-style, don't force Variant A/B/D's academic section list onto it — WebFetch that venue's own CFP and build the structure around what it actually asks for.
 
 ---
 

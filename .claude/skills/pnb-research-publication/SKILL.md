@@ -551,6 +551,23 @@ See `references/submission-checklist.md` Section 10 for portal URLs, cover lette
 
 ---
 
+## Redirecting or Condensing an Existing Draft for a Different Venue
+
+Triggers: "redirect this to [venue]," "make this fit [venue]'s format," "this got rejected, retarget it," or any request to adapt an already-drafted paper for a venue other than the one it was written for. Do NOT treat this as a copy-edit — a paper that fits Venue A can violate Venue B's hard limits and voice expectations wholesale, and the compression required to meet a tighter limit is itself a source of new errors, not just a formatting pass.
+
+**Protocol (built from the 2026-08-20 FDE paper IEEE Access → IEEE Software redirect):**
+
+1. **Research the new venue live before touching content.** WebFetch that venue's own current CFP/author-guidelines page — word limits, abstract limits, reference caps, required extra elements (e.g., IEEE Software's "Three Actionable Insights" box and author photo), submission format, and voice expectations. Never assume a venue in the Paper Type Reference table or `references/submission-checklist.md`'s quick-reference table still has the same numbers — those are cached observations from when they were last checked, not live truth. If the venue is magazine/practitioner-style rather than a research journal or conference (IEEE Software is the reference case), expect the whole section structure to be wrong for it — see the note in `references/submission-checklist.md`.
+2. **Present a REVIEW before implementing**, per the Viper-style Plan→Review→Solution→Approve workflow this skill runs under: state the delta between venues (word count, refs, required elements, voice) and flag honestly whether the target venue is even a good fit for this paper's actual contribution — don't silently reshape the paper to fit a venue where it doesn't belong.
+3. **Create a new, separate directory.** Do not overwrite the original venue's draft — the two are legitimate separate deliverables (a reviewer, or the author, may want both). Reuse the IEEEtran template scaffold (`IEEEtran.cls`/`.bst`, `generate_pdf.py`, color/visual-design preamble, existing TikZ figures) rather than rebuilding from scratch if the new venue also uses IEEEtran.
+4. **Condense with intent, not just deletion.** Cutting a formal Related Work literature review, a theoretical/combinatorics digression, or a multi-page case analysis down to fit a tight word count is normal for a practitioner piece — but track what gets cut and why, and don't let compression silently strip a hedge, caveat, or hard-won nuance that made a claim true. That is the single highest-risk failure mode of this whole workflow.
+5. **Fix citation numbering by recompiling, not recounting by hand.** When references get dropped to fit a lower reference cap, the safest path is: pick the (possibly smaller) reference subset in `\cite{}` calls in main.tex first, compile, and read the resulting `main.bbl` for the true order-of-first-appearance numbering — then transcribe those numbers into paper.md. Do not manually renumber paper.md's `[N]` brackets by hand-tracking two schemes in your head (see Rule H below).
+6. **Run a dedicated Fact-Checker pass on the condensed draft specifically for compression errors** — even when every underlying citation was already verified for the original version. Brief that Fact-Checker explicitly to look for: a hedge or epistemic qualifier that got dropped during trimming (leaving an overclaim), any inferential detail added during rewriting that isn't actually stated in the cited source, and citation-number drift. Do not skip this on the theory that "the facts were already checked" — the *rewrite* is new content even when the facts underneath it aren't.
+7. **Re-run the AI-disclosure check for the new venue** (see `references/submission-checklist.md` Section 7) — don't assume the original venue's disclosure decision carries over.
+8. **Produce a venue-specific `SUBMISSION-CHECKLIST.md`** in the new directory — don't just copy the original venue's checklist. Note what's still outstanding (author photos, editor pre-query, portal-specific requirements) as explicit action items for the human author.
+
+---
+
 ## /grade-paper Command
 
 See `references/grade-paper.md` for the full grading rubric, auto-fix protocol, and report format template.
