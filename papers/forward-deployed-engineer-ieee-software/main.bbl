@@ -1,0 +1,53 @@
+\begin{thebibliography}{10}
+
+\bibitem{schmidt2025servicesledgrowth}
+J.~Schmidt, ``Trading margin for moat: Why the forward deployed engineer is the
+  hottest job in startups.'' Andreessen Horowitz, jun 2025.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{orosz2025fde}
+G.~Orosz, ``What are forward deployed engineers, and why are they so in
+  demand?.'' The Pragmatic Engineer, aug 2025.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{openai2026fdelifesciences}
+{OpenAI}, ``Forward deployed engineer (fde), life sciences -- sf.'' OpenAI
+  Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{anthropic2026fde}
+{Anthropic}, ``Forward deployed engineer.'' Anthropic Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{scaleai2026fde}
+{Scale AI}, ``Forward deployed engineer.'' Scale AI Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{beyer2016sre}
+B.~Beyer, C.~Jones, J.~Petoff, and N.~R. Murphy, eds., {\em Site Reliability
+  Engineering: How Google Runs Production Systems}.
+\newblock Sebastopol, CA: O'Reilly Media, 2016.
+
+\bibitem{karakurt2026rag}
+E.~Karakurt and A.~Akbulut, ``Retrieval-augmented generation (rag) and large
+  language models (llms) for enterprise knowledge management and document
+  automation: A systematic literature review,'' {\em Applied Sciences},
+  vol.~16, no.~1, p.~368, 2026.
+
+\bibitem{mohammadi2025llmagentsurvey}
+M.~Mohammadi, Y.~Li, J.~Lo, and W.~Yip, ``Evaluation and benchmarking of llm
+  agents: A survey,'' 2025.
+\newblock arXiv:2507.21504.
+
+\bibitem{brehme2025ragtrust}
+L.~Brehme, T.~Str{\"o}hle, and R.~Breu, ``Can llms be trusted for evaluating
+  rag systems? a survey of methods and datasets,'' in {\em Proc. IEEE Swiss
+  Conf. Data Science (SDS25)}, 2025.
+\newblock arXiv:2504.20119.
+
+\bibitem{palantir2026fdse}
+{Palantir Technologies}, ``Forward deployed software engineer.'' Palantir
+  Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\end{thebibliography}

@@ -1,0 +1,90 @@
+\begin{thebibliography}{10}
+
+\bibitem{schmidt2025servicesledgrowth}
+J.~Schmidt, ``Trading margin for moat: Why the forward deployed engineer is the
+  hottest job in startups.'' Andreessen Horowitz, jun 2025.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{orosz2025fde}
+G.~Orosz, ``What are forward deployed engineers, and why are they so in
+  demand?.'' The Pragmatic Engineer, aug 2025.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{palantir2026fdse}
+{Palantir Technologies}, ``Forward deployed software engineer.'' Palantir
+  Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{openai2026fdelifesciences}
+{OpenAI}, ``Forward deployed engineer (fde), life sciences -- sf.'' OpenAI
+  Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{anthropic2026fde}
+{Anthropic}, ``Forward deployed engineer.'' Anthropic Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{scaleai2026fde}
+{Scale AI}, ``Forward deployed engineer.'' Scale AI Careers, 2026.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{karakurt2026rag}
+E.~Karakurt and A.~Akbulut, ``Retrieval-augmented generation (rag) and large
+  language models (llms) for enterprise knowledge management and document
+  automation: A systematic literature review,'' {\em Applied Sciences},
+  vol.~16, no.~1, p.~368, 2026.
+
+\bibitem{mohammadi2025llmagentsurvey}
+M.~Mohammadi, Y.~Li, J.~Lo, and W.~Yip, ``Evaluation and benchmarking of llm
+  agents: A survey,'' 2025.
+\newblock arXiv:2507.21504.
+
+\bibitem{wang2025llmagentdataanalysis}
+X.~Wang, X.~Ling, K.~Li, G.~Yin, L.~Zhang, J.~Wu, A.~Wang, and W.~Wang, ``Llm
+  and agent-driven data analysis: A systematic approach for enterprise
+  applications and system-level deployment,'' 2025.
+\newblock arXiv:2511.17676.
+
+\bibitem{brehme2025ragtrust}
+L.~Brehme, T.~Str{\"o}hle, and R.~Breu, ``Can llms be trusted for evaluating
+  rag systems? a survey of methods and datasets,'' in {\em Proc. IEEE Swiss
+  Conf. Data Science (SDS25)}, 2025.
+\newblock arXiv:2504.20119.
+
+\bibitem{magalhaes2022jobspecialization}
+C.~V.~C. Magalh{\~a}es, F.~Q.~B. da~Silva, and R.~E.~S. Santos, ``The role of
+  job specialization in the software industry,'' in {\em Information Technology
+  and Systems: Proceedings of ICITS 2022}, vol.~414 of {\em Lecture Notes in
+  Networks and Systems}, pp.~307--317, Cham: Springer, 2022.
+
+\bibitem{onet2024about}
+{U.S. Department of Labor, Employment and Training Administration}, ``About
+  o*net.'' O*NET Resource Center, 2024.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{sfia2024framework}
+{SFIA Foundation}, ``Skills framework for the information age (sfia),'' 2024.
+\newblock [Online; accessed Aug. 2026].
+
+\bibitem{bumblauskas2017sellingtechnicalsales}
+D.~P. Bumblauskas, A.~R. Carberry, and D.~P. Sly, ``Selling technical sales to
+  engineering learners,'' {\em Advances in Engineering Education}, vol.~6,
+  no.~1, pp.~1--19, 2017.
+
+\bibitem{scottbeuk2020saleseducation}
+J.~I. Scott and F.~Beuk, ``Sales education for engineering students: What
+  drives interest and choice?,'' {\em Journal of Marketing Education}, vol.~42,
+  no.~3, pp.~324--338, 2020.
+
+\bibitem{oliveira2021devrel}
+R.~Oliveira, C.~Ajala, D.~Viana, B.~Cafeo, and A.~Font{\~a}o, ``Developer
+  relations (devrel) roles: an exploratory study on practitioners' opinions,''
+  in {\em Proc. XXXV Brazilian Symp. Software Engineering (SBES '21)},
+  (Joinville, Brazil), pp.~202--211, 2021.
+
+\bibitem{beyer2016sre}
+B.~Beyer, C.~Jones, J.~Petoff, and N.~R. Murphy, eds., {\em Site Reliability
+  Engineering: How Google Runs Production Systems}.
+\newblock Sebastopol, CA: O'Reilly Media, 2016.
+
+\end{thebibliography}
