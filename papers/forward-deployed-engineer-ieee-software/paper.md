@@ -75,6 +75,8 @@ The FDE title is doing real organizational work right now without a definition t
 
 This work received no external funding or institutional support. All source material is drawn from publicly accessible company career pages, industry publications, and peer-reviewed literature, as cited throughout.
 
+This article's text was drafted with the assistance of Claude (Anthropic), an artificial intelligence system, under the direction, review, and fact-verification of the author, who is fully accountable for all content, citations, and claims. No AI system is credited as an author.
+
 ---
 
 ## References

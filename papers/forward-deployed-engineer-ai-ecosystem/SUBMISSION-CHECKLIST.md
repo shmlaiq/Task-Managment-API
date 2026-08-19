@@ -43,7 +43,7 @@ Author: Muhammad Faisal Laiq (no institutional affiliation) — shmlaiq@gmail.co
 
 ## 7. Ethics & Compliance
 - [x] No human-subjects data, no primary data collection — paper is explicit about this in Section VI (Limitation #4)
-- [x] No AI-use disclosure statement included. **Action for author before submission:** check IEEE Access's current AI-assistance disclosure policy at submission time and add a disclosure statement if required — this paper was produced with AI-assisted drafting and research under human direction, review, and fact-checking, and IEEE Access's policy on disclosing that may have changed since this checklist was written.
+- [x] **AI-use disclosure added (2026-08-20).** Verified live against IEEE Access's own submission guidelines page (ieeeaccess.ieee.org/authors/submission-guidelines/), which requires: "The use of artificial intelligence (AI)–generated text in an article shall be disclosed in the acknowledgements section. The sections of the paper that use AI-generated text shall have a citation to the AI system used to generate the text." Disclosure now present in the Acknowledgments section of both paper.md and main.tex, naming Claude (Anthropic) and covering Sections I–VII. Re-verify this policy hasn't changed at actual submission time — it can move.
 
 ## 8. Final Build Check
 - [x] `pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex` — clean, 8 pages
@@ -55,7 +55,7 @@ These are honest, flagged limitations from the fact-checking pass — not blocke
 
 1. **Scale AI case study (Section V.D)** is explicitly hedged as lower-confidence than the other three companies — the live job posting could not be independently re-fetched (dynamically loaded content, standard bot protection). If you have direct access to the current Scale AI FDE posting, a quick manual re-check would strengthen this subsection.
 2. **Palantir's exact FDE founding year** is stated as "early 2010s" based on the single best-available secondary source (The Pragmatic Engineer). No primary Palantir source with an exact date was found. This is stated as a hedge, not a hard date, and should stay that way unless you find a primary source.
-3. **AI-use disclosure** (see Section 7 above) — confirm IEEE Access's current policy before submission.
+3. ~~AI-use disclosure~~ — done, see Section 7 above.
 4. This paper makes no causal claims and collected no primary survey/interview data — that is a deliberate, load-bearing limitation (Section VI), not a gap to "fix" before submission. Do not let a reviewer push you into overclaiming here.
 
 ## 10. Submission
