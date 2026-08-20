@@ -148,6 +148,7 @@ keyword2, keyword3
 | Putting visual elements between `\maketitle` and `\begin{abstract}` | Content goes into left column only, not spanning | Place decorative content INSIDE the abstract/keywords mdframed, or omit |
 | Using `\IEEEspecialpapernotice{...}` with large TikZ content | Entire title block pushed to page 2 (blank page 1) | `\IEEEspecialpapernotice` is for short inline notices only |
 | `\hrule` inside `\IEEEspecialpapernotice` | Renders in wrong context | Use `\noindent\rule{\linewidth}{1.5pt}` if needed in column body |
+| TikZ feedback/return-loop arc anchored `.south`→`.south` with a single `bend right=N`, label `below` | Arc barely clears the row it loops over; label overlaps the node tops it's supposed to sit above | Anchor `.north`→`.north`; route with explicit `out=`/`in=`/`looseness=` (e.g. `out=100,in=80,looseness=1.8`) for a taller arc; put the label `above,pos=0.5`, not `below` |
 
 ---
 
@@ -213,6 +214,62 @@ Use matching arrow colors per branch (`ar1/.style`, `ar2/.style`, etc.)
 - Add white gridlines between cells (`\draw[white, line width=1.2pt]`)
 - Outer border: `\draw[darkblue!50, line width=0.8pt]`
 
+### Table Color Coordinated to a Figure's Legend/Spokes
+
+When a table's rows map 1:1 onto a figure's labeled categories (e.g., a
+comparison table whose rows are exactly a taxonomy figure's dimensions), tint
+each table row with the SAME color as its corresponding figure element,
+rather than picking table colors independently. This reads as one connected
+visual system instead of two separately-decorated elements.
+
+```latex
+\usepackage{colortbl}   % enables \rowcolor — add to preamble near booktabs
+
+\begin{tabular}{...}
+\toprule
+\rowcolor{darkblue!15}
+\textbf{Dimension} & \textbf{...} \\
+\midrule
+\rowcolor{steelblue!8}
+Primary output & ... \\
+\rowcolor{tealcolor!8}
+Client interaction level & ... \\
+\bottomrule
+\end{tabular}
+```
+
+`\rowcolor{...}` goes on its own line immediately before the row it colors
+(after `\toprule`/`\midrule`, before the cell content). Use one light tint
+(`!5`–`!10`) per row so text stays fully legible; reserve a stronger tint
+(`!15`) for the header row only.
+
+When a table's rows do NOT map onto a fixed color-coded set (e.g., a
+cross-entity comparison table with no inherent per-row category), use a
+single accent color instead: header `accentcolor!15`, alternating data rows
+`accentcolor!5` / no fill.
+
+### Callout / Key-Finding Boxes
+
+Long, text-heavy sections (a wall of body paragraphs with no table or figure
+for several pages) benefit from a small `mdframed` callout that crystallizes
+the section's single most important sentence — not a new claim, a restatement
+of one already argued in the surrounding prose. Use sparingly (2–4 per paper,
+at genuinely load-bearing findings, not every subsection) and vary the color
+per callout so each one visually ties back to whichever figure/table-color
+theme it belongs to:
+
+```latex
+\begin{mdframed}[linecolor=steelblue, linewidth=1.2pt, backgroundcolor=steelblue!6,
+  innerleftmargin=8pt, innerrightmargin=8pt, innertopmargin=6pt, innerbottommargin=6pt,
+  roundcorner=4pt]
+\noindent\textbf{\textcolor{steelblue}{Key Finding ---}}~One or two sentences,
+restated from the surrounding prose, not a new claim.
+\end{mdframed}
+```
+
+Place these as normal body content (single-column width), not inside
+`figure*`/`table*` — they're a prose accent, not a float.
+
 ---
 
 ## Hyperlink Colors
@@ -241,9 +298,11 @@ color identity throughout the body.
 - [ ] Heatmaps use diverging scale (gray→yellow→orange→red)
 - [ ] Taxonomy branches color-coded per domain
 - [ ] Matrix figures have colored headers and bold dominant cells
+- [ ] Tables whose rows map onto a figure's categories reuse that figure's colors (`\rowcolor`, `colortbl`)
+- [ ] Any text-heavy section (multiple pages, no table/figure) has at least one callout box at its key finding
 - [ ] `\hypersetup{colorlinks=true,...}` set in preamble
 - [ ] Compile clean (zero errors, zero warnings) after all visual changes
-- [ ] Render page 1 to PNG and visually verify before delivery
+- [ ] Render page 1 (AND any page with a new multi-node TikZ diagram) to PNG and visually verify before delivery
 
 ---
 
@@ -265,7 +324,7 @@ EOF
 
 Open `page1_check.png` and verify:
 1. Title is visible in darkblue (not black)
-2. Author line is in green italic
+2. Author line is in dark purple (`slateblue`) italic — never green/`midgreen`
 3. Abstract box has colored border and light blue fill
 4. "Abstract—" appears ONCE only (bold colored, inside the box)
 5. Index Terms box is styled
