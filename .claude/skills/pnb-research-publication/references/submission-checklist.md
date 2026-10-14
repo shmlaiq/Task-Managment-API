@@ -126,6 +126,18 @@ pdfinfo paper.pdf | grep -E "Author|Creator|Producer"
 
 ---
 
+## 6b. IEEE Access: Template and Length (verified live 2026-10-14)
+
+- [ ] **[BLOCKER]** IEEE Access requires its **own template at initial submission** ("using a required IEEE Access template"; LaTeX/Word source + PDF, ≤40 MB). Plain `[journal]{IEEEtran}` is not enough. Get the zip from ieeeaccess.ieee.org/authors/preparing-your-article/. The site's Cloudflare blocks bare curl, so use a full browser User-Agent plus a `Referer:` header. Write in `ieeeaccess` from the start when Access is the target.
+- [ ] **[BLOCKER]** Over 20 pages needs a **pre-submission inquiry to the EIC**, sent *before* upload; a cover-letter request is not enough. There is no over-length fee (APC $2,160 flat).
+- Known `ieeeaccess.cls` pitfalls (each cost real debugging time on the HACOF paper):
+  1. **TikZ/pgfplots produce 200+ "Missing number" errors and a blank page after every page.** Cause: the class does `\def\year#1{...}`, and PGF seeds its RNG with the TeX `\year` counter. Fix: `\let\primitiveyear\year` *before* `\documentclass`, then wrap the TikZ loads: `\let\accessyear\year\let\year\primitiveyear` … `\usepackage{tikz}`/`pgfplots` … `\let\year\accessyear`.
+  2. **Title, section headings and ABSTRACT/INDEX TERMS labels are invisible** when `xcolor` is loaded, because `accessblue` is a PANTONE spot color. Fix: `\definecolor{accessblue}{cmyk}{1,0.3,0,0.2}` (the same PANTONE 3015C ink values).
+  3. The class redefines `\textbf#1` → `\textbf{\textcolor{c}{X}}` errors out. Use `\textcolor{c}{\bfseries X}`.
+  4. The class colors and uppercases headings itself; strip `\textcolor` from `\section`/`\subsection` titles (Rule Q color then lives in boxes, tables and figures).
+  5. The sample `access.tex` loads `algorithmic`, which is not in Debian TeX Live; drop it when test-compiling the sample.
+- **Log checks:** pdfTeX logs contain binary bytes, so plain `grep -c '^!' main.log` can silently print nothing, which looks like zero errors. Always use `grep -a`.
+
 ## 7. Ethics & Compliance
 
 - [ ] **[BLOCKER for any IEEE venue if the draft used AI assistance]** AI-use disclosure: before delivery, WebFetch the *specific target venue's own current* author-guidelines page (not a cached memory of another IEEE venue's policy — policies differ by venue and change over time) and check its stance on disclosing AI-generated text. IEEE Access's page (verified 2026-08-20, ieeeaccess.ieee.org/authors/submission-guidelines/) requires exactly this: "The use of artificial intelligence (AI)–generated text in an article shall be disclosed in the acknowledgements section. The sections of the paper that use AI-generated text shall have a citation to the AI system used to generate the text." Where a policy like this applies, add to the Acknowledgments section: which sections were AI-drafted, which AI system was used (name it — do not omit), and an explicit statement that the human author is fully accountable for all content/citations/claims and that no AI system is credited as an author. Do this by default whenever the skill produced substantial draft text, not only when the user asks.

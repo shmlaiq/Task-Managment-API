@@ -1,0 +1,265 @@
+{
+ "selftest": {
+  "in_profile_allowed": true,
+  "out_of_profile_denied": true,
+  "high_impact_held": true,
+  "delegation_cannot_widen": true,
+  "delegation_keeps_hold": true,
+  "unanswered_hold_denied": true,
+  "audit_chain_valid": true,
+  "revoked_agent_denied": true,
+  "tamper_detected": true
+ },
+ "E1": {
+  "baseline": {
+   "detection_rate": [
+    0.562,
+    0.0089
+   ],
+   "prevention": [
+    0.5138,
+    0.0085
+   ],
+   "residual_harm_per_1000_sessions": [
+    168.675,
+    5.7532
+   ],
+   "false_block_rate": [
+    0.0029,
+    0.0001
+   ],
+   "false_containment_per_1000_sessions": [
+    0.0,
+    0.0
+   ],
+   "audit_completeness": [
+    0.6022,
+    0.0081
+   ],
+   "evidence_completeness": [
+    0.6022,
+    0.0081
+   ],
+   "collateral_per_1000_sessions": [
+    0.0,
+    0.0
+   ],
+   "mttd_actions": [
+    3.4227,
+    0.2518
+   ],
+   "mttc_actions": [
+    NaN,
+    0.0
+   ],
+   "prevention_high_impact": [
+    0.0,
+    0.0
+   ]
+  },
+  "no_supervisors": {
+   "detection_rate": [
+    0.7068,
+    0.0074
+   ],
+   "prevention": [
+    0.7068,
+    0.0074
+   ],
+   "residual_harm_per_1000_sessions": [
+    101.55,
+    2.7981
+   ],
+   "false_block_rate": [
+    0.0029,
+    0.0001
+   ],
+   "false_containment_per_1000_sessions": [
+    0.0,
+    0.0
+   ],
+   "audit_completeness": [
+    0.9525,
+    0.0033
+   ],
+   "evidence_completeness": [
+    0.9525,
+    0.0033
+   ],
+   "collateral_per_1000_sessions": [
+    0.0,
+    0.0
+   ],
+   "mttd_actions": [
+    0,
+    0.0
+   ],
+   "mttc_actions": [
+    NaN,
+    0.0
+   ],
+   "prevention_high_impact": [
+    0.9283,
+    0.0073
+   ]
+  },
+  "homog_declared": {
+   "detection_rate": [
+    0.9753,
+    0.0021
+   ],
+   "prevention": [
+    0.9483,
+    0.0036
+   ],
+   "residual_harm_per_1000_sessions": [
+    17.925,
+    1.3057
+   ],
+   "false_block_rate": [
+    0.0068,
+    0.0002
+   ],
+   "false_containment_per_1000_sessions": [
+    0.0,
+    0.0
+   ],
+   "audit_completeness": [
+    0.9525,
+    0.0033
+   ],
+   "evidence_completeness": [
+    0.9896,
+    0.0019
+   ],
+   "collateral_per_1000_sessions": [
+    757.125,
+    25.9489
+   ],
+   "mttd_actions": [
+    0.069,
+    0.0088
+   ],
+   "mttc_actions": [
+    1.2147,
+    0.0223
+   ],
+   "prevention_high_impact": [
+    0.949,
+    0.0059
+   ]
+  },
+  "homog_hidden": {
+   "detection_rate": [
+    0.9772,
+    0.0022
+   ],
+   "prevention": [
+    0.9544,
+    0.0024
+   ],
+   "residual_harm_per_1000_sessions": [
+    15.8,
+    0.8632
+   ],
+   "false_block_rate": [
+    0.012,
+    0.0006
+   ],
+   "false_containment_per_1000_sessions": [
+    23.0,
+    1.5115
+   ],
+   "audit_completeness": [
+    0.9525,
+    0.0033
+   ],
+   "evidence_completeness": [
+    0.9923,
+    0.0011
+   ],
+   "collateral_per_1000_sessions": [
+    872.625,
+    27.7377
+   ],
+   "mttd_actions": [
+    0.0713,
+    0.0058
+   ],
+   "mttc_actions": [
+    1.0964,
+    0.0187
+   ],
+   "prevention_high_impact": [
+    0.9589,
+    0.0045
+   ]
+  },
+  "hacof": {
+   "detection_rate": [
+    0.9901,
+    0.0019
+   ],
+   "prevention": [
+    0.9552,
+    0.0036
+   ],
+   "residual_harm_per_1000_sessions": [
+    15.525,
+    1.2507
+   ],
+   "false_block_rate": [
+    0.0081,
+    0.0003
+   ],
+   "false_containment_per_1000_sessions": [
+    4.25,
+    0.4951
+   ],
+   "audit_completeness": [
+    0.9525,
+    0.0033
+   ],
+   "evidence_completeness": [
+    0.995,
+    0.001
+   ],
+   "collateral_per_1000_sessions": [
+    870.95,
+    27.62
+   ],
+   "mttd_actions": [
+    0.1089,
+    0.0122
+   ],
+   "mttc_actions": [
+    1.1108,
+    0.0214
+   ],
+   "prevention_high_impact": [
+    0.9614,
+    0.004
+   ]
+  }
+ }
+}
+E2 {'phi': 0.0, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.0, 'prevention_mean': 0.0, 'ci95': 0.0}
+E2 {'phi': 0.0, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.0, 'prevention_mean': 0.4789, 'ci95': 0.003}
+E2 {'phi': 0.2, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.17, 'prevention_mean': 0.1684, 'ci95': 0.0039}
+E2 {'phi': 0.2, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.17, 'prevention_mean': 0.6007, 'ci95': 0.003}
+E2 {'phi': 0.4, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.34, 'prevention_mean': 0.3386, 'ci95': 0.0043}
+E2 {'phi': 0.4, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.34, 'prevention_mean': 0.707, 'ci95': 0.003}
+E2 {'phi': 0.6, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.51, 'prevention_mean': 0.5089, 'ci95': 0.0056}
+E2 {'phi': 0.6, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.51, 'prevention_mean': 0.7988, 'ci95': 0.0032}
+E2 {'phi': 0.8, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.68, 'prevention_mean': 0.6803, 'ci95': 0.0056}
+E2 {'phi': 0.8, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.68, 'prevention_mean': 0.8785, 'ci95': 0.0022}
+E2 {'phi': 0.9, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.765, 'prevention_mean': 0.766, 'ci95': 0.0049}
+E2 {'phi': 0.9, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.765, 'prevention_mean': 0.914, 'ci95': 0.0017}
+E2 {'phi': 1.0, 'campaign_containment': False, 'd': 0.85, 'bound_phi_d': 0.85, 'prevention_mean': 0.8509, 'ci95': 0.0038}
+E2 {'phi': 1.0, 'campaign_containment': True, 'd': 0.85, 'bound_phi_d': 0.85, 'prevention_mean': 0.9468, 'ci95': 0.0015}
+E3 {'rho_latent': 0.0, 'rho_binary_errors': 0.0015, 'joint_miss_rate': 0.0002, 'k_eff_detection': 7.074, 'n_eff_formula_binary_rho': 6.937, 'independent_miss_rate': 0.00022}
+E3 {'rho_latent': 0.2, 'rho_binary_errors': 0.1204, 'joint_miss_rate': 0.00514, 'k_eff_detection': 4.378, 'n_eff_formula_binary_rho': 4.064, 'independent_miss_rate': 0.00022}
+E3 {'rho_latent': 0.4, 'rho_binary_errors': 0.2489, 'joint_miss_rate': 0.02201, 'k_eff_detection': 3.17, 'n_eff_formula_binary_rho': 2.808, 'independent_miss_rate': 0.00022}
+E3 {'rho_latent': 0.6, 'rho_binary_errors': 0.3929, 'joint_miss_rate': 0.05513, 'k_eff_detection': 2.407, 'n_eff_formula_binary_rho': 2.085, 'independent_miss_rate': 0.00022}
+E3 {'rho_latent': 0.8, 'rho_binary_errors': 0.574, 'joint_miss_rate': 0.11314, 'k_eff_detection': 1.81, 'n_eff_formula_binary_rho': 1.575, 'independent_miss_rate': 0.00022}
+E3 {'rho_latent': 0.9, 'rho_binary_errors': 0.701, 'joint_miss_rate': 0.16366, 'k_eff_detection': 1.503, 'n_eff_formula_binary_rho': 1.345, 'independent_miss_rate': 0.00022}
