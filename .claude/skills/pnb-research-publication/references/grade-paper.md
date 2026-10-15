@@ -8,7 +8,7 @@ Grade any paper (`paper.md` + `references.bib`) on a 100-point scale and
 ## Execution Protocol
 
 ```
-1. Run bash audit (all 17 commands) → collect raw findings
+1. Run bash audit (all 19 commands, including check 19's PDF compile + visual read for any paper with main.tex) → collect raw findings
 2. Score each category (0–100) using rubric below
 3. Identify BLOCKERS (must stop delivery) and WARNINGS (fixable)
 4. Auto-fix all warnings in paper.md (banned phrases, missing failure cases, etc.)

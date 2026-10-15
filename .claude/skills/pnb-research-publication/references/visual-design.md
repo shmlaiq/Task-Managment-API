@@ -14,7 +14,7 @@ Rule K (no figplaceholders).
 - [ ] Index Terms have a styled box
 - [ ] All figures use resource-coded color schemes (not monochrome)
 - [ ] Heatmaps use diverging color scale (not all-blue)
-- [ ] Section headings are colored (IEEEtran default is blue — verify it renders)
+- [ ] Section headings are colored — **do not assume `[journal]{IEEEtran}` defaults to blue; it does not, it renders plain black.** Wrap each heading's title text explicitly: `\section{\textcolor{darkblue}{Title}}`, `\subsection{\textcolor{darkblue}{Title}}` (the auto-generated Roman numeral/letter prefix stays black; that's expected). Verified false-by-default on the 2026-08-21 paper — checklist previously told authors to merely "verify it renders," which is why this was missed there.
 
 ---
 

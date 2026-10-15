@@ -16,6 +16,28 @@ AI-generated research writing fails in predictable ways:
 The goal is not to "fool" detectors — the goal is to write the way expert
 researchers actually write. That writing naturally passes detection.
 
+**What "passing detection" actually proves, and what it doesn't (added 2026-08-22).**
+The tools in the table below are stylometric — they score sentence-pattern and
+perplexity signatures, and a low score means the *prose style* reads human. That is
+a real, useful signal for writing quality, and worth running every time (see the
+Scanner suite below). But Claude embeds an imperceptible watermark directly into
+all generated text at the token level, and per Anthropic's own documentation that
+watermark "will travel with the text when it's copied and pasted elsewhere" —
+including into a paper's `paper.md`/`main.tex`. No amount of burstiness, hedging
+variation, or humanized-tone editing removes it, because it isn't a style pattern;
+it's embedded independently of phrasing. A paper can score 0% on every stylometric
+scanner in this file and still be identifiable as Claude-processed by a
+watermark-aware detector. **This is not a problem to solve by writing differently
+— it is exactly why Rule H's mandatory AI-disclosure statement in every paper's
+Acknowledgments section is not optional or merely IEEE-policy-compliance theater.**
+The disclosure is true regardless of scanner score, the watermark makes it
+independently verifiable, and a reviewer or tool finding the watermark on a paper
+that already discloses AI assistance in its Acknowledgments confirms the
+disclosure rather than exposing an omission. Never describe a scanner-clean paper
+to the user as "AI-detection-proof" or "undetectable" — say what the check
+actually establishes: the prose reads as an expert practitioner would write it,
+which is the pillar's real goal, not concealment.
+
 ---
 
 ## AI Detection Tools Used in Academia
@@ -440,3 +462,21 @@ awk '/^## (II\.|Related Work)/,/^## (III\.|Background)/' paper.md | \
   grep -in "however\|but \|limitation\|fails\|lacks\|does not\|unable\|constraint\|assumes\|restricted\|cannot\|weakness\|gap\|outside its"
 # If no output for a subsection: that subsection is purely descriptive = flag
 ```
+
+## Tic substitution check (added 2026-10-12)
+
+Cutting a tic phrase by swapping in a near-synonym only relocates it. On the AI-governance paper,
+"rather than" fell 72→18 but ", not" rose 39→51 and "instead of" 3→10, so total contrast markers
+fell only ~26%. Converting em-dash asides to parentheses/semicolons likewise shifts the texture
+into punctuation density. When running a tic-reduction pass:
+- Count the whole family before and after (rather than / instead of / , not / and not / ; it is not),
+  not just the target phrase. Prefer rewriting as a plain positive statement over swapping the marker.
+- Recount semicolons, parentheses and colons per 1k words after an em-dash pass; flag lines with 3+.
+- Never sharpen a hedge while rephrasing ("ground in a case" → "test on a case" contradicted Limitations;
+  "assumes" → "never interrogates" became an absolute). Diff-check every rewrite for hedge strength.
+- Rewriting paired asides can silently drop the aside's content; diff for lost clauses and restore them.
+- Every prose round on the 2026-10-12 paper introduced 6–13 small slips (hedge drift such as "realistic"→"workable",
+  a dropped contrast clause, broken parallelism after splitting a list, mass-noun grammar). Run an independent
+  Editor diff-check of the word diff (`git diff --no-index --word-diff=plain old.tex main.tex`) after EVERY round.
+- Explanatory "X: clause" colons are a tic of their own; converting ~20 to two sentences cut density 23.5→21.4/1k.
+  Keep colons that introduce real lists and bold/italic run-in labels (Inputs:, Fallback:).

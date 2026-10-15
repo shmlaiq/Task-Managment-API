@@ -65,8 +65,9 @@ Ask questions 1–4 first (always required for the research-paper path). Ask 5�
 5. **Contributions**: "What are the 2–3 main contributions?"
 6. **Materials available**: "Do you have results/data, or is this a proposed approach?"
 7. **Contact details**: "Your email address, and optionally ORCID iD?" — needed for the author block in main.tex. Collect at Step 0 so the final LaTeX is complete at first delivery, not as a late patch.
+8. **Author biography** (journals with bios, e.g. IEEE Access/Transactions): first look for a shared canonical bio file, `papers/AUTHOR-BIO.md`. If it exists, reuse it verbatim and do not ask again. If not, ask for a résumé or bio text, draft one under the Author Biography Rules below, get the author's approval, and save it as `papers/AUTHOR-BIO.md` so every later paper reuses it.
 
-**If 5–7 go unanswered:** proceed with safe defaults — conference format, 6–8 pages, contributions inferred from the topic description. Note any gaps in SUBMISSION-CHECKLIST.md for the author to fill before submission.
+**If 5–8 go unanswered:** proceed with safe defaults — conference format, 6–8 pages, contributions inferred from the topic description. Note any gaps in SUBMISSION-CHECKLIST.md for the author to fill before submission.
 
 **Author block formatting rule** (apply immediately when writing main.tex):
 
@@ -76,6 +77,19 @@ Ask questions 1–4 first (always required for the research-paper path). Ask 5�
 | No affiliation provided | `\IEEEauthorblockN{Name \qquad Email:~x \qquad ORCID:~x}` — single line, NO `\IEEEauthorblockA` |
 
 **Critical:** Never use `\IEEEauthorblockA` with a placeholder value (`[Your Affiliation]`, empty, or `Independent Researcher` without the author's consent) — it renders as a visible blank or wrong line in the PDF. If affiliation is unknown, use the no-affiliation single-line pattern above and note the gap in SUBMISSION-CHECKLIST.md.
+
+### Author Biography Rules
+
+Built from the 2026-10-14/15 HACOF bio and its rollout to six more papers.
+
+- **One canonical source.** `papers/AUTHOR-BIO.md` holds the approved full bio, any approved short bio, the photo path, the author's redaction rules, and a list of which papers use which version. When a bio changes, update that file and every paper that uses it in the same pass.
+- **Privacy.** The bio carries no phone number and no home or work address. Name the employer and give a location finer than country level only if the author agrees. Before delivery, grep the bio for phone and address fragments.
+- **No email in the bio** when the email is already on page 1 (author block or corresponding-author line), since IEEE Access lists it there. A trailing "(e-mail: …)" in the bio is a duplicate.
+- **Placement.** Put it after `\bibliography{...}`. In the IEEE Access template (`ieeeaccess.cls`) it must also come before `\EOD`. Use `\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{author.jpg}}]{Name}`. This needs `graphicx`, which `tikz` already loads.
+- **Photo.** Crop to 4:5 (e.g. 600×750) to fit the 1 in × 1.25 in box, and copy `author.jpg` into every paper folder rather than pointing at another paper's folder. Ask before pushing the photo to a public repo.
+- **When not to add one.** No bio for double-blind or blind-review submissions, because it de-anonymizes the paper; check the `\author{}` block for "Anonymous". No bio for arXiv preprints either.
+- **Magazines (e.g. IEEE Software).** Use a short bio of about 50–60 words and count it toward the word limit. Show the exact text to the author for approval before inserting it, then record it as the short version in `AUTHOR-BIO.md`.
+- **Verify.** Rebuild, then read the last page of the rendered PDF to confirm the bio text and photo appear (audit Check 19). Record the bio and any page-count change in `SUBMISSION-CHECKLIST.md`.
 
 ### Paper Type Reference
 
@@ -305,10 +319,10 @@ See `references/agent-workflow.md` for full prompts and handoff schemas.
 4  Fact-Checker Agent → CLEAR or BLOCKED report
 5  (if BLOCKED) Lead resolves → re-check
 6  Editor Agent → IEEE style + anti-AI transformation
-7  Lead Agent → run the 17-check pre-delivery audit (`references/audit-commands.md`) → final QA → deliver
+7  Lead Agent → run the 19-check pre-delivery audit (`references/audit-commands.md`) → final QA → deliver
 ```
 
-**Step 7 is a hard gate, not an optional command.** The 17-check audit is part of
+**Step 7 is a hard gate, not an optional command.** The 19-check audit is part of
 Execution Protocol step 7 itself — run it unprompted, every time, as the literal
 last action before telling the user the paper is done. `/grade-paper` (see below)
 re-runs the same audit plus a scored rubric for when the user explicitly wants a
@@ -367,7 +381,7 @@ from the moment the first word is written. Never skip, never defer to "fix later
 - [ ] Rule P ON — vendor/official documentation written with read-close-write method, same as academic papers
 - [ ] Rule Q ON — paper is colorful and visually attractive; first page has colored title, styled author, colored abstract box, colored keywords box; all figures use resource-coded colors; heatmaps use diverging scale — read `references/visual-design.md` before writing main.tex
 
-**Before delivering ANY draft, run the 17-check pre-delivery audit in `references/audit-commands.md`.** Checks 1, 2, 4, 5, 13, 14, 15 are delivery blockers.
+**Before delivering ANY draft, run the 19-check pre-delivery audit in `references/audit-commands.md`.** Checks 1, 2, 4, 5, 13, 14, 15, and 19 (compiled-PDF visual verification, for any paper with `main.tex`) are delivery blockers.
 
 Read the corresponding reference file BEFORE any content is generated.
 
@@ -447,7 +461,7 @@ Read `references/writing-rules.md` **before writing Section I**. Full enforcemen
 | **E — Install rhythm** | ≥5 platform subsections: vary opening strategy across subsections. Check: 3+ identical openings → restructure. |
 | **F — Future work order** | Order by urgency, not symmetry. Never "Three limitations are the most consequential..." → deduction trigger. |
 | **G — Orphaned refs** | Every `.bib` entry must be cited inline. Run audit check 6 before delivery. |
-| **H — File sync** | paper.md ↔ main.tex must stay in sync. Every edit to one triggers an update to the other. **Citation numbers specifically are one-way: main.tex/`\cite{}` + BibTeX is the source of truth, since `bibtex` computes IEEE order-of-first-appearance automatically — paper.md's hand-typed `[N]` numbers do not. After any edit that adds, removes, or reorders a citation, recompile (`pdflatex → bibtex → pdflatex → pdflatex`), read the resulting `main.bbl`/rendered PDF, and copy that numbering into paper.md rather than incrementing paper.md's brackets by hand — hand-tracking two parallel numbering schemes is exactly how numbers drift out of order-of-first-appearance sequence.** |
+| **H — File sync** | paper.md ↔ main.tex must stay in sync. Every edit to one triggers an update to the other. **Citation numbers specifically are one-way: main.tex/`\cite{}` + BibTeX is the source of truth, since `bibtex` computes IEEE order-of-first-appearance automatically — paper.md's hand-typed `[N]` numbers do not. After any edit that adds, removes, or reorders a citation, recompile (`pdflatex → bibtex → pdflatex → pdflatex`), read the resulting `main.bbl`/rendered PDF, and copy that numbering into paper.md rather than incrementing paper.md's brackets by hand — hand-tracking two parallel numbering schemes is exactly how numbers drift out of order-of-first-appearance sequence.** For a *large* renumbering (e.g. a Related Work expansion that roughly doubles or triples the reference count, so old numbers map non-sequentially to new ones), a direct sequential find-and-replace on `[N]` markers WILL corrupt the text via collisions — e.g. remapping old `[8]`→new `[24]` and later a *different* old citation also lands on `[8]`, the second replace clobbers the first. Use a safe two-pass script instead: pass 1 maps every old number to a unique temp tag (`re.sub(rf'\[{old}\](?!\d)', f'[[TMP{new}]]', text)` for each old→new pair from the compiled `main.bbl`), pass 2 strips the temp tags (`re.sub(r'\[\[TMP(\d+)\]\]', r'[\1]', text)`). Verify afterward with a script that checks the reference list is contiguous 1..N, zero duplicates, and every number is cited at least once in the body (zero orphans in both directions) — this caught nothing wrong on the 2026-08-22 taxonomy-paper 27→72 expansion specifically *because* the two-pass method was used from the start. |
 | **I — External claims** | Events, product features, specs, pricing, hardware = citation required or remove. Pre-write: "Is this cited?" |
 | **J — Abstract** | Ends on significance; all non-standard acronyms expanded (LLM, MCP, RAG, HITL, ACP, VPS, QMD); factual lists match body; no `[N]` citations. |
 | **K — Figures** | TikZ/pgfplots in main.tex before delivery. Preamble: `tikz`, `pgfplots`, `arrows.meta,positioning,shapes.geometric,fit,calc,backgrounds`, `compat=1.18`. Never `sed` on `.tex`. 7 templates in `references/figures-design.md`. |
@@ -457,6 +471,8 @@ Read `references/writing-rules.md` **before writing Section I**. Full enforcemen
 | **O — Abstract echo** | No 5+ word abstract phrase verbatim in body. Grep 3 phrases; each must return ≤1 hit. |
 | **P — Vendor docs** | read-close-write applies to vendor docs equally. Never write with product page open. |
 | **Q — Visual design** | First page: colored title (`\textcolor{darkblue}`), **dark purple italic author** (`\textcolor{slateblue}{\itshape ...}`), mdframed abstract box (darkblue border + light fill), mdframed keywords box. Figures: resource-coded colors, diverging heatmap scale, colored branch taxonomy. IEEEtran abstract label: suppress via `\makeatletter` redefine — `\renewcommand` alone does NOT remove the hardcoded `---`. Full spec: `references/visual-design.md`. |
+
+**Regenerating `paper.md` after large revisions (added 2026-10-11).** When a revision touches many sections, hand-syncing `paper.md` is how drift creeps in. Use `python3 -I scripts/tex2md.py <paper-dir>` instead. It rebuilds `paper.md` from `main.tex`, `main.aux` (section, table and figure numbers) and `main.bbl` (citation numbers and the reference list), so Rule H's one-way numbering holds by construction. Run it after the final compile and grep the result for leftover LaTeX (`grep -nE '\\[a-zA-Z]{3,}' paper.md | grep -v '\$'`).
 
 ---
 
@@ -531,11 +547,49 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 
 ## Citation Verification Protocol (Run After Writing)
 
+**Laws and regulations change after the model's knowledge cutoff, so re-verify application dates (added 2026-10-11).** Before describing any statute as "in force", "requiring" or "applying", check the official journal or register for amending instruments. Root cause: an already-audited paper described the EU AI Act's high-risk articles (Arts. 12, 14, 26, plus Notified Body conformity assessment) as currently applying. In fact the Digital Omnibus, Reg. (EU) 2026/1744 (in force 27 Jul 2026), had deferred them to 2 Dec 2027 (Annex III) and 2 Aug 2028 (Annex I). Use "will require once applicable", and cite the amending act as well as the base act.
+
+**A "passing" grade can hide claim–source mismatches (added 2026-10-11).** The AI-governance paper was graded A+ on 2026-10-10. A later cold, whole-paper Fact-Checker pass, which checked 20 citations against their primary sources, found 12 Major claim–source mismatches in sections that earlier rounds had not re-opened:
+- a blog post cited as a "philosophical treatment";
+- legal texts cited as "comparative literature";
+- a quotation attributed to the Paris Agreement that comes from UNFCCC Art. 4.5;
+- a $1B pledge attributed to the wrong document and year;
+- a programme described as "approved" when it was only "planned";
+- six wrong author first names in one BibTeX entry;
+- a web page cited for facts it does not contain.
+
+Section-scoped review rounds only re-check what they were pointed at. For the final grade, always run one whole-paper Fact-Checker that primary-checks a sample weighted toward sections nobody has re-verified. Score Fact & Citation Integrity from that pass, not from the earlier section-level passes.
+
+**Never let the skill's own rule wording into the manuscript.** Phrases such as "ordered by urgency rather than by symmetry", "stated as a ratio rather than a bare percentage", "binary prerequisite for a specific downstream use case" and "a missing mechanism, not an underfunded one" are instructions to the writer. In the paper they read as machine self-justification, and the Editor flagged them as an AI tell. Satisfy the rule silently.
+
+**Simulation results in a conceptual paper need a dedicated code-review pass (added 2026-10-11).** A Variant D paper that adds a prototype or simulation to lift Experimental Rigor gets an independent reviewer who re-runs the code and reads it against the paper's own text. On the HACOF paper the first version had five defects that compiled and ran cleanly. Check for each class:
+- **Rule fidelity.** Does the code implement the mechanism exactly as the paper words it? Example: "two *different* supervisors" was coded as any two, which made a headline result partly circular.
+- **Ground-truth leakage.** Grep every use of the label (`malicious`, `session_mal`) and confirm that only disclosed, modeled human accuracy reads it.
+- **Metric definitions.** A table caption must match the code's definition, e.g. audit completeness, or time-to-contain as an actual delay rather than an independent random draw.
+- **Results true by construction.** Say "confirms the code", not "confirms the bound".
+- **Paired workloads (common random numbers).** Use a separate RNG for the workload so every arm faces the same sessions.
+
+Also generate every results-table number and plot coordinate from the output JSON with a script, never by hand, and label simulated rates as properties of assumed parameters. This takes two review rounds, so budget for them.
+
+**Prior-work comparison tables overstate novelty by default (added 2026-10-11).** When a table rates prior works with ✓ / partial / "not addressed", the author's own blind spots land in the "not addressed" cells. On the HACOF paper, 5 of 12 rows had "--" cells that the primary sources contradicted: Shavit et al. raise monitor privacy, monitor reliability and monitor similarity as concerns. Define the symbols in the caption ("addressed as a design requirement" vs. "raised as a concern"), and have the Fact-Checker check every "--" cell against the primary text, not only the ✓ cells. A wrong "--" in the columns that carry the novelty claim is a Major finding.
+
+**A citation can resolve and still not support a country-specific claim.** A US-only payroll study had been cited for a Pakistan labor-market claim, and two earlier audits missed it. When the claim names a country, sector or population, the Fact-Checker must confirm the source's sample covers it, not only that the source exists.
+
+**Removing a citation can leave a premise unsourced (added 2026-10-14).** When a fix deletes an unsupported citation, grep for every sentence that depended on it. That includes cross-references like "the scarcity documented in Section IV.C", which become false. Either re-source the premise or reword it as the authors' argument. On the HACOF paper this regression surfaced as a new Major one round after the "fix".
+
+**Bib `note` fields are not verified sources (added 2026-10-14).** A number sitting in a BibTeX note, such as NIST AI RMF "developed with 240+ contributing organizations", may never have been checked against the document itself. That figure is not in the RMF PDF. Before promoting a note's fact into body text, verify it in the primary source.
+
 Batch 5 WebSearch calls per message: query format `Author "Title" Venue Year`.
 
 For each result: (1) confirm arXiv ID in URL (`arxiv.org/abs/XXXX.XXXXX`); (2) match title and authors; (3) verify DOI on publisher site — DOIs can be wrong even when title/year are correct; (4) verify URLs live; (5) mark ✅ in SUBMISSION-CHECKLIST.md.
 
 Tag user-provided current events as `[CITE-USER]` with a note to replace before submission. DOI mismatches are the most common error — always verify on the journal site, not just from search results.
+
+**Don't trust a Literature Agent's "correction" without checking it yourself.** A Literature Agent dispatched to verify a number can itself be wrong or incomplete — it is not exempt from the same verification discipline it applies to the Writing Agent. Root cause (2026-08-22 biocomputing paper): a Literature Agent flagged a company's product-spec neuron count as "wrong, corrected to 800,000," but the Lead had independently watched the company's own product-demo video state "around 200,000" for the same product. Re-checking the agent's correction directly (WebFetch on the company's own product page, then a targeted WebSearch on the launch coverage) found the truth was messier than either single number: the company's own launch press and its own demo video state two different figures, and neither source resolves the conflict. The right move was not to trust the agent's "corrected" figure, and not to silently pick the Lead's own recollection either — it was to report the inconsistency itself as a finding, with both sources cited. Treat any Literature Agent correction of a "your number was wrong" kind as a lead to re-verify against the primary source directly, not as a fact to merge on the agent's word.
+
+**Any citation the Lead adds outside a dispatched Literature Agent pass gets the same verification rigor, not less.** A number found via the Lead's own quick WebSearch — answering a side question, chasing a tangent, following up on a user request mid-session — is exactly as capable of being wrong as one a sub-agent finds, but it is easy to skip the verification step because "I already found the source." Root cause (same paper, same session): the Lead independently researched whether biocomputing could scale to replace conventional AI, found a company-efficiency claim ("up to one billion times more energy-efficient") in a single secondary blog aggregator, and used it in body prose before an independent Fact-Checker pass caught that it wasn't traceable to any primary source and, worse, was inconsistent with a *more conservative* unverified figure ("a million times") the paper had already flagged elsewhere as unverified. Any number destined for the paper, regardless of who or what found it, needs the same primary-source check before it's written into `paper.md`/`main.tex` — WebSearch-found-it and peer-reviewed-verified-it are not the same status.
+
+**Video sources: distinguish primary from secondary before citing.** A YouTube video from the subject company's own official channel, describing its own product/technical pipeline, is a company primary source — cite it the way you'd cite a press release or product page, and it can support technical claims (architecture, timelines, specific test results the company itself narrates). A YouTube video from an unrelated commentator or news outlet discussing the same subject is secondary commentary — cite it only to establish how the topic is being discussed publicly (Introduction framing), never as the source of a technical or scientific claim. When a paper draws on multiple videos about the same subject, sort them into these two buckets explicitly before drafting, not after a Fact-Checker flags a claim's provenance as unclear. To actually pull a transcript when WebFetch returns only a JS-rendered page shell (YouTube's watch pages do this) and third-party transcript sites 403 automated requests: `yt-dlp --skip-download --write-auto-sub --write-sub --sub-lang en --sub-format vtt` reliably gets the caption track directly from YouTube's own signed API where a raw `curl` on the timedtext URL does not (session or JS-runtime dependent signing). Read the transcript yourself and paraphrase/cite it — never paste it verbatim at length into a deliverable; a transcript is the creator's copyrighted material regardless of how it was obtained.
 
 ### Replacing [CITE-USER] Tags (Current Events Protocol)
 
@@ -566,6 +620,22 @@ Triggers: "redirect this to [venue]," "make this fit [venue]'s format," "this go
 7. **Re-run the AI-disclosure check for the new venue** (see `references/submission-checklist.md` Section 7) — don't assume the original venue's disclosure decision carries over.
 8. **Produce a venue-specific `SUBMISSION-CHECKLIST.md`** in the new directory — don't just copy the original venue's checklist. Note what's still outstanding (author photos, editor pre-query, portal-specific requirements) as explicit action items for the human author.
 
+**`SUBMISSION-CHECKLIST.md` is a living document, not a one-time delivery artifact — update it in the same pass as any content revision, not just at first delivery.** Root cause this guards against (2026-08-22 taxonomy paper): after a Related Work expansion that took the paper from 27 refs/9 pages to 72 refs/14 pages, the checklist still said "26 references," "9 pages," and — worse — an *Outstanding* item claimed "no scanner tool was available" directly contradicting an *earlier* section of the same file that said the AI-detection scanner had already been run and passed. A checklist that contradicts itself is worse than no checklist, because it actively misleads the next read. When a revision changes a number the checklist cites (page count, reference count, section count) or resolves an item the checklist lists as outstanding, update the checklist file itself as part of closing out that revision — treat it as part of the deliverable, not documentation to circle back to later.
+
+---
+
+## Restructuring an Already-Delivered Paper's Title or Core Thesis
+
+Distinct from the venue-redirect protocol above: this is a change to what the paper *claims*, at the same venue, not a change of venue. Trigger: the user asks to change the title to something that implies a different central question or argument ("could X replace Y" instead of "a framework for X"), or asks to "transform the whole paper accordingly."
+
+**Check whether the new framing is compatible with the paper's own evidence before rewriting a single sentence.** A title swap is not free — the paper's existing findings may support the new question directly, support it after reordering, or contradict it outright. State this plainly to the user before implementing (Plan→Review→Solution→Approve, same as any non-trivial change): if the paper's own evidence argues the opposite of what the new title implies, say so and propose how the restructured paper would honestly answer the new question, rather than silently forcing a conclusion the evidence doesn't support.
+
+**Reusable vs. must-rewrite, once approved:** verified citations, tables, figures, and background/technical sections are reusable as-is — the facts didn't change, only the organizing question did. Title, Abstract, Introduction's hook/contributions list, and the Conclusion need a full rewrite, since these are the sections whose entire job is to state what the paper's central question and answer are. A conceptual framework that was the paper's sole headline contribution under the old title often becomes a *supporting tool* for one part of the new question — reposition it in the structure (a subsection under one of the new question's parts) rather than leaving it as a freestanding section that no longer matches the paper's stated flow.
+
+**Citation order will likely shift even with zero new citations added, because reordering sections changes order-of-first-appearance.** Recompile after restructuring and diff the new `main.bbl` order against the old one before touching `paper.md` — do not assume unchanged citation keys means unchanged numbers. Use the two-pass safe remap (Rule H) regardless of how small the apparent reordering looks.
+
+**Re-run Rule O (abstract-body echo) after restructuring, not just after fresh drafting.** Moving a paper's key finding into a new, earlier position (e.g., from a closing comparison into a mid-paper "Key Finding" callout box) tends to produce exactly the kind of literal phrase reuse Rule O exists to catch, because the same central number now gets stated in the abstract, the contributions list, a callout box, and the conclusion — four natural places for a restructured paper's one most important sentence to land verbatim. Root cause (2026-08-22 biocomputing-replacement restructure): the phrase "orders of magnitude below data-center scale" ended up in the abstract and three body locations after the vascularization finding was moved from the paper's end into an earlier "Condition 2" evaluation section. Fixed by varying the wording in the body instances while keeping the abstract's phrasing as the canonical, single verbatim occurrence.
+
 ---
 
 ## /grade-paper Command
@@ -592,7 +662,7 @@ See `references/grade-paper.md` for the full grading rubric, auto-fix protocol, 
 | `references/anti-hallucination.md` | **Before writing** — stat verification, arXiv protocol |
 | `references/anti-plagiarism.md` | **Before writing** — read-close-write, scanner thresholds |
 | `references/anti-ai-detection.md` | **Before writing** — banned phrases, burstiness, scanner suite |
-| `references/audit-commands.md` | **Before delivering** — 17 bash checks, fix actions |
+| `references/audit-commands.md` | **Before delivering** — 19 bash checks (Check 19.6 = bio + disclosure), fix actions |
 | `references/submission-checklist.md` | Pre-submission + blind review + ethics statement + submission portals |
 | `references/grade-paper.md` | `/grade-paper` command — grading rubric, auto-fix protocol, report format |
 

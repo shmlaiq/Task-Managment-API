@@ -1,6 +1,8 @@
-# Pre-Delivery Audit Commands (17 Checks)
+# Pre-Delivery Audit Commands (19 Checks)
 
-Run **all 17 checks** before delivering any draft. Checks 1–5 and 13–14 are delivery BLOCKERS.
+Run **all 19 checks** before delivering any draft. Checks 1–5, 13–14, and 19 are delivery BLOCKERS.
+
+**Every check below is a grep/script against source text (`paper.md`/`main.tex`/`references.bib`) — none of them read the compiled PDF.** That is a real blind spot, not a hypothetical one: on the 2026-08-21 "Prompt to Loop Engineering" paper, `\IEEEtitleabstractindextext` silently dropped the entire Abstract and Index Terms block on compile (title page jumped straight from the author line to "I. Introduction"), and a separate merge duplicated the whole Acknowledgments/AI-disclosure paragraph — both invisible to every check in this file, both only caught because the user asked to visually check the rendered PDF. Check 19 exists specifically so this class of bug is never delivery-blocking-invisible again.
 
 ---
 
@@ -110,6 +112,75 @@ grep -n "[0-9]\+-[0-9]\+W\|[0-9]\+ watt\|[0-9]\+W\b\|[0-9]\+ GHz\|[0-9]\+ TFLOP"
 #   - RTX 4090: 450W TDP   → https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/
 #   - A100 SXM4: 400W      → https://www.nvidia.com/en-us/data-center/a100/
 #   Use separate BibTeX keys per product page — do not cite consumer page for data center card.
+
+---
+
+# 19. Compiled-PDF visual verification — DELIVERY BLOCKER for any paper with main.tex [BLOCKER]
+# Checks 1-18 only grep source text. They cannot catch a LaTeX macro that
+# compiles clean (no errors, no warnings) but silently drops its content, or
+# a merge that duplicates a whole section's text. Both happened on a real
+# paper and passed every other check.
+#
+# 1. Run the full compile chain and confirm zero errors / zero undefined refs:
+pdflatex -interaction=nonstopmode main.tex && bibtex main && \
+  pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex
+grep -iE "error|undefined" main.log | grep -v "may have changed"   # must be empty
+grep -c "??" main.log                                              # must be 0
+#
+# 2. Read the actual rendered main.pdf (Read tool on the PDF file, or render page
+#    images) — do not skip this because the compile log is clean. At minimum verify:
+#    - Abstract and Index Terms/Keywords are actually visible on page 1 (not just
+#      present in main.tex source — confirm they render)
+#    - Acknowledgments / AI-disclosure paragraph appears exactly once, not duplicated
+#    - Author block, title, and section headers show the intended colors (Rule Q)
+#    - Page count matches what was reported to the user
+# Fix: if a macro (e.g., \IEEEtitleabstractindextext) drops its content silently,
+# switch to the standard `\begin{abstract}`/`\begin{IEEEkeywords}` environments per
+# references/visual-design.md's tested pattern — do not debug the broken macro further,
+# just use the documented-working one.
+#
+# 3. Comment-swallowed prose (added 2026-10-11, HACOF revision of the AI-governance
+#    paper). Agents tag citations with trailing `% CLAIM: ...` comments for the
+#    Fact-Checker. A scripted string replacement that ends just before such a comment
+#    left the NEXT sentence on the same line as the comment, so LaTeX treated it as part
+#    of the comment and dropped it. The compile was clean, and only a PDF text search
+#    found it. Rules: every `% ...` comment must END its line, and prose always starts
+#    on a new line. Also never leave a blank line inside a sentence after a comment
+#    (it creates a \par mid-sentence). Detect both mechanically:
+#      python3 -c "import re;[print(i,l[:120]) for i,l in enumerate(open('main.tex'),1) if re.search(r'(?<!\\\\)%.*(\\\\cite|\\\\ref|\\\\textbf|---)',l)]"
+#      mutool draw -F txt main.pdf > /tmp/pdf.txt   # then grep 3-4 distinctive sentences
+#    and strip or relocate CLAIM comments before final delivery if any doubt remains.
+#
+# 4. Rendering pages when the Read tool cannot open the PDF (pdftoppm missing):
+#      mutool draw -r 80 -o /tmp/png/p%d.png main.pdf 1,5,13   # then Read the PNGs
+#    Also check: the keywords mdframed box is not split across columns (add
+#    `nobreak=true`), and long bibliography URLs do not run into the other column
+#    (`\usepackage{xurl}` after `\usepackage{url}`).
+#
+# 5. Waiting on a slow (e.g. /mnt/d on WSL) background build: NEVER use
+#      until ! pgrep -f 'pdflatex|bibtex' ...
+#    `pgrep -f` matches the waiting shell's own command line, so the loop never
+#    exits (2026-10-12: three such waiters sat for hours). Use exact process names:
+#      while pgrep -x pdflatex >/dev/null || pgrep -x bibtex >/dev/null; do sleep 5; done
+#    And do not edit main.tex while a build is running — rebuild after the edit.
+#
+# 6. Author biography and AI disclosure (added 2026-10-15; see SKILL.md
+#    "Author Biography Rules"):
+#      grep -c "begin{IEEEbiography}" main.tex     # >=1 for journals with bios;
+#                                                  # MUST be 0 if \author{} says "Anonymous"
+#      ls author.jpg                               # photo is in THIS paper's folder
+#      python3 -c "import re;b=re.findall(r'begin\{IEEEbiography\}.*?end\{IEEEbiography\}',open('main.tex').read(),re.S);print([x for x in b if '@' in x] or 'OK: no email in bio')"
+#      mutool draw -F txt main.pdf | grep -c "<last sentence of the bio>"   # must be 1
+#      grep -n "\[author-email\]\|\[Your" main.tex                         # must be empty
+#    Then view the last page as an image to confirm the photo renders.
+#    Disclosure: grep the Acknowledgments of main.tex AND paper.md for the
+#    wording the author chose. A word hyphenated across a PDF line break
+#    ("AI-" / "LLM") makes a PDF text grep return 0 even when the text is
+#    correct, so check the source or grep for one half of the word.
+#    Pre-existing build blockers: an unused `\usepackage{algorithmic}` or
+#    `{algorithm}` fails on Debian TeX Live. If `grep -c "begin{algorithm"` is
+#    0, delete those lines; a paper folder without IEEEtran.cls/.bst needs them
+#    copied in from a sibling paper.
 
 ---
 
