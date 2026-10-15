@@ -1,6 +1,6 @@
-arm,detection_rate,prevention,residual_harm_per_1000_sessions,false_block_rate,false_containment_per_1000_sessions,audit_completeness,evidence_completeness,collateral_per_1000_sessions,mttd_actions,mttc_actions,prevention_high_impact
-baseline,0.562,0.5138,168.675,0.0029,0.0,0.6022,0.6022,0.0,3.4227,nan,0.0
-no_supervisors,0.7068,0.7068,101.55,0.0029,0.0,0.9525,0.9525,0.0,0,nan,0.9283
-homog_declared,0.9753,0.9483,17.925,0.0068,0.0,0.9525,0.9896,757.125,0.069,1.2147,0.949
-homog_hidden,0.9772,0.9544,15.8,0.012,23.0,0.9525,0.9923,872.625,0.0713,1.0964,0.9589
-hacof,0.9901,0.9552,15.525,0.0081,4.25,0.9525,0.995,870.95,0.1089,1.1108,0.9614
+arm,detection_rate,prevention,residual_harm_per_1000_sessions,false_block_rate,false_containment_per_1000_sessions,audit_completeness,evidence_completeness,collateral_per_1000_sessions,mttd_actions,mttc_actions,prevention_high_impact,false_containment_undercount
+baseline,0.562,0.5138,168.675,0.0029,0.0,0.6022,0.6022,0.0,3.4227,nan,0.0,nan
+no_supervisors,0.7068,0.7068,101.55,0.0029,0.0,0.9525,0.9525,0.0,0,nan,0.9283,nan
+homog_declared,0.9753,0.9483,17.925,0.0068,0.0,0.9525,0.9896,757.125,0.069,1.2147,0.949,nan
+homog_hidden,0.9772,0.9544,15.8,0.012,23.0,0.9525,0.9923,872.625,0.0713,1.0964,0.9589,0.0448
+hacof,0.9901,0.9552,15.525,0.0081,4.25,0.9525,0.995,870.95,0.1089,1.1108,0.9614,0.0682

@@ -242,7 +242,8 @@ def run(P: Params, seed: int) -> dict:
     one_method = arm == "homog_declared"
     m = dict(mal=0, prevented=0, detected=0, executed=0, ttd=[], ttc=[], decision_logged=0,
              evidence_logged=0, benign=0, fp_block=0, fp_contain_sessions=0, collateral=0,
-             mal_hi=0, mal_hi_prevented=0, sessions=P.sessions, wrong_lifts=0)
+             mal_hi=0, mal_hi_prevented=0, sessions=P.sessions, wrong_lifts=0,
+             premature_contain=0)
     for s in range(P.sessions):
         log = AuditLog()
         gw = Gateway({"recon": profile}, log)
@@ -251,8 +252,10 @@ def run(P: Params, seed: int) -> dict:
         c_start = c_end = None        # containment interval [c_start, c_end)
         scrutiny_until = -1           # V.G: a single alert raises scrutiny, it does not contain
         counted_false = False
+        attack_started = False        # set at the session's first malicious action
         for a in acts:
             if a.malicious:
+                attack_started = True
                 m["mal"] += 1; m["mal_hi"] += a.high_impact
             else:
                 m["benign"] += 1
@@ -319,6 +322,10 @@ def run(P: Params, seed: int) -> dict:
                     c_start = max(a.step + 1, t_detect + lag)
                     review = c_start + max(1, round(rng.expovariate(1 / P.review_delay)))
                     if session_mal:
+                        # a false alarm that fires before the attack begins: the reviewer
+                        # judges it correct (the session is compromised), so it is not
+                        # counted in fp_contain_sessions; tracked here (no RNG draw)
+                        m["premature_contain"] += not attack_started
                         m["ttc"].append(c_start - t_detect)
                         lift = rng.random() > P.p_human_correct     # reviewer wrongly lifts
                         m["wrong_lifts"] += lift
@@ -348,6 +355,14 @@ def run(P: Params, seed: int) -> dict:
     return m
 
 
+def ratio_undercount(ms: list[dict]) -> tuple:
+    vals = [x["premature_contain"] / (x["premature_contain"] + x["fp_contain_sessions"])
+            for x in ms if x["premature_contain"] + x["fp_contain_sessions"]]
+    if not vals:
+        return float("nan"), 0.0
+    return statistics.mean(vals), (1.96 * statistics.stdev(vals) / math.sqrt(len(vals))) if len(vals) > 1 else 0.0
+
+
 def summarize(ms: list[dict]) -> dict:
     def ratio(num, den):
         vals = [x[num] / x[den] for x in ms if x[den]]
@@ -370,6 +385,8 @@ def summarize(ms: list[dict]) -> dict:
         "mttd_actions": meanlist("ttd"),
         "mttc_actions": meanlist("ttc"),
         "prevention_high_impact": ratio("mal_hi_prevented", "mal_hi"),
+        # share of all false-alarm containments that the reviewer counts as correct
+        "false_containment_undercount": ratio_undercount(ms),
     }
     return {k: [round(v[0], 4), round(v[1], 4)] for k, v in out.items()}
 

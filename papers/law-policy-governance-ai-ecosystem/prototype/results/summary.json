@@ -106,6 +106,10 @@
       "prevention_high_impact": [
         0.0,
         0.0
+      ],
+      "false_containment_undercount": [
+        NaN,
+        0.0
       ]
     },
     "no_supervisors": {
@@ -152,6 +156,10 @@
       "prevention_high_impact": [
         0.9283,
         0.0073
+      ],
+      "false_containment_undercount": [
+        NaN,
+        0.0
       ]
     },
     "homog_declared": {
@@ -198,6 +206,10 @@
       "prevention_high_impact": [
         0.949,
         0.0059
+      ],
+      "false_containment_undercount": [
+        NaN,
+        0.0
       ]
     },
     "homog_hidden": {
@@ -244,6 +256,10 @@
       "prevention_high_impact": [
         0.9589,
         0.0045
+      ],
+      "false_containment_undercount": [
+        0.0448,
+        0.0163
       ]
     },
     "hacof": {
@@ -290,6 +306,10 @@
       "prevention_high_impact": [
         0.9614,
         0.004
+      ],
+      "false_containment_undercount": [
+        0.0682,
+        0.0338
       ]
     }
   },

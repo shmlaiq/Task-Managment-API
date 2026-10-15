@@ -2,7 +2,7 @@
 
 **Why this is needed:** IEEE Access submission guidelines (verified live 2026-10-14): "Authors who have a special reason to submit a paper over 20 pages must first make a pre-submission inquiry to seek permission from the EIC." Permission must come **before** upload. No direct EIC address is published; send via the IEEE Author Portal (https://ieee.atyponrex.com/journal/ieee-access) help/contact route or the IEEE Access editorial office contact listed on ieeeaccess.ieee.org.
 
-**Attach:** `access/main.pdf` (the IEEE Access-template version, 33 pages).
+**Attach:** `access/main.pdf` (the IEEE Access-template version, 34 pages).
 
 ---
 
@@ -10,7 +10,7 @@
 
 Dear Editor-in-Chief,
 
-In line with the IEEE Access submission guidelines for manuscripts over 20 pages, I am writing to request permission to submit the above manuscript at its full length of 33 pages in the IEEE Access template, including approximately 4 pages of references (79 entries).
+In line with the IEEE Access submission guidelines for manuscripts over 20 pages, I am writing to request permission to submit the above manuscript at its full length of 34 pages in the IEEE Access template, including approximately 4 pages of references (95 entries) and the author biography.
 
 The manuscript proposes HACOF, a policy-oriented reference model for runtime oversight of AI agents under legal authority, and maps it onto four pillars of state governance capacity, with Pakistan's 2025 National AI Policy as a case study. The length reflects three components that depend on each other and that reviewers would need together to assess the contribution:
 

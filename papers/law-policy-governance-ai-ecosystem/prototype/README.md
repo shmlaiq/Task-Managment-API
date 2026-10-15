@@ -25,6 +25,7 @@ Default parameters are recorded in `results/summary.json` (`params_default`) and
 - Human approvers and reviewers are modeled by fixed accuracy rates. They are the only components that see ground truth, and they see it only through those rates.
 - Containment runs as an interval: a human review follows after a delay, false containments are lifted with probability 0.8, and correct ones are wrongly lifted with probability 0.05.
 - Detection counts in-path blocks (at time 0) and attempts stopped inside an already-detected incident.
+- A containment that a false alarm triggers before a compromised session's attack begins is judged correct by the reviewer, so it is not counted as a false containment. `false_containment_undercount` in `results/summary.json` (E1) reports the share of all false-alarm containments this rule hides: about 0.07 for full HACOF. It is a pure counter with no extra random draws, so all other outputs are identical to runs without it.
 
 ## Limitations
 - The detectors are not language models.

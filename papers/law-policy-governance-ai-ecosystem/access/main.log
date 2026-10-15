@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.11)  14 OCT 2026 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.11)  15 OCT 2026 05:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1129,7 +1129,7 @@ Package hyperref Info: Link coloring ON on input line 45.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-<bullet.png, id=197, 12.045pt x 35.38219pt>
+<bullet.png, id=201, 12.045pt x 35.38219pt>
 File: bullet.png Graphic file (type png)
 <use bullet.png>
 Package pdftex.def Info: bullet.png  used on input line 62.
@@ -1163,12 +1163,12 @@ Overfull \hbox (9.2679pt too wide) in paragraph at lines 73--73
  []
 
 
-Underfull \vbox (badness 6559) has occurred while \output is active []
+Underfull \vbox (badness 1275) has occurred while \output is active []
 
 
-Underfull \vbox (badness 6559) has occurred while \output is active []
+Underfull \vbox (badness 1281) has occurred while \output is active []
 
-<logo.png, id=198, 206.27063pt x 53.44969pt>
+<logo.png, id=202, 206.27063pt x 53.44969pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 80.
@@ -1199,9 +1199,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  <./logo.png> <./bullet.png>]
 Package mdframed Info: mdframed works in twoside mode on input line 85.
 
-Underfull \vbox (badness 1024) has occurred while \output is active []
+Underfull \hbox (badness 5652) in paragraph at lines 104--105
+\T1/times/n/n/10 and al-go-rith-mic au-dit-ing ac-cess) that de-com-poses
+ []
 
-<notaglinelogo.png, id=219, 169.38281pt x 42.91031pt>
+<notaglinelogo.png, id=225, 169.38281pt x 42.91031pt>
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
 Package pdftex.def Info: notaglinelogo.png  used on input line 105.
@@ -1327,14 +1329,14 @@ Package xcolor Warning: Incompatible color definition on input line 173.
 Package xcolor Warning: Incompatible color definition on input line 184.
 
 
-Package xcolor Warning: Incompatible color definition on input line 193.
+Package xcolor Warning: Incompatible color definition on input line 194.
 
 
-Package xcolor Warning: Incompatible color definition on input line 199.
+Package xcolor Warning: Incompatible color definition on input line 200.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 202.
+Package pdftex.def Info: notaglinelogo.png  used on input line 200.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1353,19 +1355,19 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [5]
 
-Package xcolor Warning: Incompatible color definition on input line 260.
+Package xcolor Warning: Incompatible color definition on input line 261.
 
 
-Underfull \hbox (badness 3386) in paragraph at lines 264--267
+Underfull \hbox (badness 3386) in paragraph at lines 265--268
 []\T1/times/n/n/10 This is where boundary-setting ca-pac-ity con-cen-trates
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 270.
+Package xcolor Warning: Incompatible color definition on input line 271.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 277.
+Package pdftex.def Info: notaglinelogo.png  used on input line 278.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1383,12 +1385,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [6]
-Underfull \hbox (badness 2150) in paragraph at lines 278--280
+Underfull \hbox (badness 2150) in paragraph at lines 279--281
 []\T1/times/n/n/10 Compute is a sec-ond, dis-tinct re-source con-straint on
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 285.
+Package xcolor Warning: Incompatible color definition on input line 286.
 
 
 Package xcolor Warning: Incompatible color definition on input line 297.
@@ -1419,25 +1421,9 @@ Package xcolor Warning: Incompatible color definition on input line 308.
 
 Package xcolor Warning: Incompatible color definition on input line 316.
 
-
-Underfull \hbox (badness 2744) in paragraph at lines 322--323
-[]\T1/times/b/n/10 A bind-ing technology-transfer or capacity-building
- []
-
-
-Underfull \hbox (badness 1708) in paragraph at lines 322--323
-\T1/times/n/n/10 developing-country par-ties and makes the stand-ing UN-
- []
-
-
-Underfull \hbox (badness 1478) in paragraph at lines 324--325
-\T1/times/n/n/10 bind-ing third-party al-go-rith-mic au-dit with ex-trater-ri-t
-o-rial
- []
-
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 325.
+Package pdftex.def Info: notaglinelogo.png  used on input line 334.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1456,17 +1442,25 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [8]
 
-Package xcolor Warning: Incompatible color definition on input line 333.
+Package xcolor Warning: Incompatible color definition on input line 335.
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 343--344
-[]\T1/times/m/it/10 Translation \T1/times/n/n/10 --- le-gal and in-sti-tu-tiona
-l re-quire-ments
+Underfull \hbox (badness 2744) in paragraph at lines 341--342
+[]\T1/times/b/n/10 A bind-ing technology-transfer or capacity-building
  []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 343--344
+\T1/times/b/n/10 rith-mic au-dit right. \T1/times/n/n/10 Two ex-ist-ing in-stru
+-ments cur-rently
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 375.
+Package pdftex.def Info: notaglinelogo.png  used on input line 357.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1485,20 +1479,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [9]
 
-Package xcolor Warning: Incompatible color definition on input line 377.
+Package xcolor Warning: Incompatible color definition on input line 394.
 
-
-Overfull \hbox (4.58632pt too wide) in paragraph at lines 414--435
- [][] 
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 437.
-
-Package mdframed Info: mdframed works in twoside mode on input line 446.
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 454.
+Package pdftex.def Info: notaglinelogo.png  used on input line 407.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1516,12 +1501,20 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [10]
+Overfull \hbox (4.58632pt too wide) in paragraph at lines 423--444
+ [][] 
+ []
 
-Package xcolor Warning: Incompatible color definition on input line 487.
+
+Package xcolor Warning: Incompatible color definition on input line 446.
+
+Package mdframed Info: mdframed works in twoside mode on input line 455.
+
+Package xcolor Warning: Incompatible color definition on input line 496.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 541.
+Package pdftex.def Info: notaglinelogo.png  used on input line 552.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1539,9 +1532,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 555.
+Package pdftex.def Info: notaglinelogo.png  used on input line 558.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1559,9 +1554,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [12]
+Underfull \vbox (badness 1325) has occurred while \output is active []
+
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 615.
+Package pdftex.def Info: notaglinelogo.png  used on input line 602.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1582,12 +1579,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Package xcolor Warning: Incompatible color definition on input line 676.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 717.
+Package pdftex.def Info: notaglinelogo.png  used on input line 681.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1605,13 +1599,41 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [14]
-Underfull \hbox (badness 2521) in paragraph at lines 718--721
-[]\T1/times/b/n/10 Agent B --- Be-hav-ioral Anomaly. \T1/times/m/it/10 In-puts:
- \T1/times/n/n/10 teleme-try
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
+[]\T1/times/b/n/10 Agent B---Behavioral Anomaly. \T1/times/m/it/10 In-puts: \T1
+/times/n/n/10 teleme-try
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 742.
+Underfull \hbox (badness 3815) in paragraph at lines 723--726
+\T1/times/n/n/10 the pro-file marks high-impact: pay-ments, in-fras-truc-ture
+ []
+
+File: notaglinelogo.png Graphic file (type png)
+<use notaglinelogo.png>
+Package pdftex.def Info: notaglinelogo.png  used on input line 729.
+(pdftex.def)             Requested size: 91.32pt x 23.1352pt.
+
+Overfull \hbox (505.12177pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (505.12177pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[15]
+
+Package xcolor Warning: Incompatible color definition on input line 733.
+
+
+Underfull \vbox (badness 1910) has occurred while \output is active []
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
@@ -1632,38 +1654,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[15]
-
-Package xcolor Warning: Incompatible color definition on input line 761.
-
-File: notaglinelogo.png Graphic file (type png)
-<use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 820.
-(pdftex.def)             Requested size: 91.32pt x 23.1352pt.
-
-Overfull \hbox (505.12177pt too wide) has occurred while \output is active
-[]
- []
-
-
-Overfull \hbox (505.12177pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
 [16]
+
+Package xcolor Warning: Incompatible color definition on input line 749.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \vbox (badness 1701) has occurred while \output is active []
-
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 867.
+Package pdftex.def Info: notaglinelogo.png  used on input line 846.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1682,14 +1682,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [17]
 
-Package xcolor Warning: Incompatible color definition on input line 867.
-
-
-Package xcolor Warning: Incompatible color definition on input line 911.
+Package xcolor Warning: Incompatible color definition on input line 851.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 920.
+Package pdftex.def Info: notaglinelogo.png  used on input line 884.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1707,23 +1704,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [18]
-Package mdframed Info: mdframed works in twoside mode on input line 929.
+
+Package xcolor Warning: Incompatible color definition on input line 890.
 
 
-Package xcolor Warning: Incompatible color definition on input line 933.
-
-
-Underfull \hbox (badness 2096) in paragraph at lines 949--950
-[]\T1/times/m/it/10 Proportionality \T1/times/n/n/10 --- the in-tru-sive-ness o
-f mon-i-tor-ing
+Underfull \hbox (badness 2809) in paragraph at lines 893--895
+\T1/times/n/n/10 A su-per-vi-sory layer with en-force-ment power cre-ates a
  []
 
+Package mdframed Info: mdframed works in twoside mode on input line 906.
 
-Package xcolor Warning: Incompatible color definition on input line 962.
+Package xcolor Warning: Incompatible color definition on input line 910.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 973.
+Package pdftex.def Info: notaglinelogo.png  used on input line 928.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1742,21 +1737,24 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [19]
 
-Package xcolor Warning: Incompatible color definition on input line 985.
+Package xcolor Warning: Incompatible color definition on input line 935.
 
 
-Overfull \hbox (0.52313pt too wide) in paragraph at lines 1001--1001
+Package xcolor Warning: Incompatible color definition on input line 957.
+
+
+Overfull \hbox (0.52313pt too wide) in paragraph at lines 972--972
 []|\T1/times/b/n/8 Gate?|  
  []
 
 
-Overfull \hbox (6.41254pt too wide) in paragraph at lines 998--1024
+Overfull \hbox (6.41254pt too wide) in paragraph at lines 969--995
  [][] 
  []
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1027.
+Package pdftex.def Info: notaglinelogo.png  used on input line 995.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1776,7 +1774,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [20]
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1043.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1006.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1795,14 +1793,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [21]
 
-Package xcolor Warning: Incompatible color definition on input line 1044.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1083.
+Package xcolor Warning: Incompatible color definition on input line 1015.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1097.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1048.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1821,25 +1816,25 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [22]
 
-Package xcolor Warning: Incompatible color definition on input line 1102.
+Package xcolor Warning: Incompatible color definition on input line 1056.
 
 
-Underfull \hbox (badness 1881) in paragraph at lines 1107--1109
+Underfull \hbox (badness 1881) in paragraph at lines 1061--1063
 \T1/times/n/n/10 i-cal AI de-ploy-ment and data pro-tec-tion [[][]1[][]], but n
 ames
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 1121.
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Overfull \hbox (0.70056pt too wide) in paragraph at lines 1142--1142
+Overfull \hbox (0.70056pt too wide) in paragraph at lines 1096--1096
 []|\T1/times/m/n/8 Algorithmic 
  []
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1205.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1159.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1857,14 +1852,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [23]
-Package mdframed Info: mdframed works in twoside mode on input line 1210.
+Package mdframed Info: mdframed works in twoside mode on input line 1164.
 
-
-Package xcolor Warning: Incompatible color definition on input line 1214.
+Underfull \vbox (badness 2809) has occurred while \output is active []
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1227.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1171.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1883,14 +1877,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [24]
 
-Package xcolor Warning: Incompatible color definition on input line 1239.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1246.
+Package xcolor Warning: Incompatible color definition on input line 1194.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1287.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1213.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1909,24 +1900,20 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [25]
 
-Package xcolor Warning: Incompatible color definition on input line 1287.
+Package xcolor Warning: Incompatible color definition on input line 1219.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1291.
+Package xcolor Warning: Incompatible color definition on input line 1226.
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 1298--1299
-[]\T1/times/n/n/10 The base-line is the con-ven-tional con-trol set of Sec-
- []
+Package xcolor Warning: Incompatible color definition on input line 1267.
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 1328--1329
-[]\T1/times/b/n/10 Correlated su-per-vi-sors mat-ter for the con-tain-ment
- []
+Package xcolor Warning: Incompatible color definition on input line 1271.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1329.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1275.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1944,9 +1931,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [26]
+Underfull \hbox (badness 2384) in paragraph at lines 1278--1279
+[]\T1/times/n/n/10 The base-line is the con-ven-tional con-trol set of Sec-
+ []
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 1308--1309
+[]\T1/times/b/n/10 Correlated su-per-vi-sors mat-ter for the con-tain-ment
+ []
+
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1369.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1330.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1964,20 +1960,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [27]
-Underfull \hbox (badness 2027) in paragraph at lines 1370--1371
+Underfull \hbox (badness 2027) in paragraph at lines 1350--1351
 []\T1/times/b/n/10 What these re-sults do not show. \T1/times/n/n/10 The de-tec
 -tors are
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 1372.
-
-
-Underfull \vbox (badness 3701) has occurred while \output is active []
+Package xcolor Warning: Incompatible color definition on input line 1352.
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1423.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1383.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -1995,19 +1988,37 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [28]
-Underfull \hbox (badness 1675) in paragraph at lines 1424--1425
+Underfull \hbox (badness 1701) in paragraph at lines 1395--1396
+\T1/times/n/n/10 bud-get lines, en-force-ment ac-tions) than most non-major
+ []
+
+File: notaglinelogo.png Graphic file (type png)
+<use notaglinelogo.png>
+Package pdftex.def Info: notaglinelogo.png  used on input line 1398.
+(pdftex.def)             Requested size: 91.32pt x 23.1352pt.
+
+Overfull \hbox (505.12177pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (505.12177pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[29]
+Underfull \hbox (badness 1675) in paragraph at lines 1404--1405
 []\T1/times/b/n/10 Some dis-agree-ments are not en-gi-neer-ing prob-lems.
  []
 
-
-Underfull \vbox (badness 1910) has occurred while \output is active []
-
-
-Underfull \vbox (badness 1910) has occurred while \output is active []
-
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1434.
+Package pdftex.def Info: notaglinelogo.png  used on input line 1421.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -2024,37 +2035,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[29] (./main.bbl
-LaTeX Font Info:    Calculating math sizes for size <7.61> on input line 28.
-
-Underfull \hbox (badness 2635) in paragraph at lines 38--41
-[]\T1/times/n/n/7.61 OECD.AI, ``OECD.AI Pol-icy Ob-ser-va-tory: Na-tional AI St
-rate-gies,''
- []
-
+[30] (./main.bbl
+LaTeX Font Info:    Calculating math sizes for size <7.61> on input line 30.
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 65.
-(pdftex.def)             Requested size: 91.32pt x 23.1352pt.
-
-Overfull \hbox (505.12177pt too wide) has occurred while \output is active
-[]
- []
-
-
-Overfull \hbox (505.12177pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[30]
-File: notaglinelogo.png Graphic file (type png)
-<use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 294.
+Package pdftex.def Info: notaglinelogo.png  used on input line 139.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -2072,20 +2057,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [31]
-Underfull \hbox (badness 1448) in paragraph at lines 309--312
+Underfull \hbox (badness 1448) in paragraph at lines 334--337
 []\T1/times/m/n/7.61 M. Al-shiekh, R. Bloem, R. Ehlers, B. Könighofer, S. Nieku
 m, and
  []
 
-
-Underfull \hbox (badness 1755) in paragraph at lines 374--380
-[]\T1/times/m/n/7.61 117th United States Congress, ``CHIPS and Sci-ence Act of 
-2022,''
- []
-
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 529.
+Package pdftex.def Info: notaglinelogo.png  used on input line 380.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -2103,19 +2082,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [32]
-Underfull \hbox (badness 1418) in paragraph at lines 547--552
-[]\T1/times/m/n/7.61 Associated Press of Pak-istan, ``Pak-istan Plans Rs283bn N
-a-tional AI
- []
-
-)
-File: bullet.png Graphic file (type png)
-<use bullet.png>
-Package pdftex.def Info: bullet.png  used on input line 1459.
-(pdftex.def)             Requested size: 5.0pt x 14.6871pt.
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 1461.
+Package pdftex.def Info: notaglinelogo.png  used on input line 623.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 
 Overfull \hbox (505.12177pt too wide) has occurred while \output is active
@@ -2132,24 +2101,59 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[33
+[33])
 
-] (./main.aux)
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1437.
+
+<author.jpg, id=1021, 602.25pt x 752.8125pt>
+File: author.jpg Graphic file (type jpg)
+<use author.jpg>
+Package pdftex.def Info: author.jpg  used on input line 1437.
+(pdftex.def)             Requested size: 72.26688pt x 90.33359pt.
+File: author.jpg Graphic file (type jpg)
+<use author.jpg>
+Package pdftex.def Info: author.jpg  used on input line 1437.
+(pdftex.def)             Requested size: 72.26688pt x 90.33359pt.
+File: bullet.png Graphic file (type png)
+<use bullet.png>
+Package pdftex.def Info: bullet.png  used on input line 1443.
+(pdftex.def)             Requested size: 5.0pt x 14.6871pt.
+File: notaglinelogo.png Graphic file (type png)
+<use notaglinelogo.png>
+Package pdftex.def Info: notaglinelogo.png  used on input line 1445.
+(pdftex.def)             Requested size: 91.32pt x 23.1352pt.
+
+Overfull \hbox (505.12177pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (505.12177pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[34 <./author.jpg>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DA8EB6BE15B94293B73D5BA1BECEBCA1;12058.
+(rerunfilecheck)             Checksum: 3D436EFEDA8648821FC33238726832A9;12219.
  ) 
 Here is how much of TeX's memory you used:
- 35245 strings out of 476182
- 816642 string characters out of 5795595
- 1992975 words of memory out of 5000000
- 56436 multiletter control sequences out of 15000+600000
- 654510 words of font info for 179 fonts, out of 8000000 for 9000
+ 35295 strings out of 476182
+ 817603 string characters out of 5795595
+ 2000975 words of memory out of 5000000
+ 56467 multiletter control sequences out of 15000+600000
+ 657209 words of font info for 182 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,20n,93p,2168b,2242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,20n,93p,2400b,2242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{section*.2} has been referenced but does not exist,
  replaced by a fixed one
@@ -2174,10 +2178,10 @@ f-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb><./t1-formata-bold.pfb><./
 t1-formata-condmedium.pfb><./t1-formata-medium.pfb><./t1-formata-mediumitalic.p
 fb><./t1-formata-regular.pfb><./t1-giovannistd-bookitalic.pfb><./t1-times-bold.
 pfb><./t1-times-bolditalic.pfb><./t1-times-italic.pfb><./t1-times.pfb>
-Output written on main.pdf (33 pages, 647640 bytes).
+Output written on main.pdf (34 pages, 751408 bytes).
 PDF statistics:
- 1124 PDF objects out of 1200 (max. 8388607)
- 1013 compressed objects within 11 object streams
- 223 named destinations out of 1000 (max. 500000)
- 412 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1225 PDF objects out of 1440 (max. 8388607)
+ 1109 compressed objects within 12 object streams
+ 242 named destinations out of 1000 (max. 500000)
+ 437 words of extra memory for PDF output out of 10000 (max. 10000000)
 
