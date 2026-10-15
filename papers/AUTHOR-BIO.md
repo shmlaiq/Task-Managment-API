@@ -24,3 +24,19 @@ He has served in the government sector since 2006 and is currently Additional Di
 - Location: "Pakistan" only. Do not name the employer.
 - Do not add a grade, a bachelor's degree, university names, project details, certifications, a phone number or any address.
 - Only the research-interests list may be updated for new papers; any other change needs the author's approval.
+
+## Short version (magazines, e.g. IEEE Software)
+
+Approved 2026-10-15. About 55 words. Use it where word limits rule out the full bio.
+
+```latex
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{author.jpg}}]{Muhammad Faisal Laiq}
+is Additional Director ICT at a public-sector university and hospital in Pakistan, where he leads digital transformation and ICT infrastructure, and an independent researcher in agentic AI. His research interests include AI-driven development, loop engineering, human-approved hierarchical multi-agent systems, and AI governance. He received a master's degree in telecommunication.
+\end{IEEEbiography}
+```
+
+## Where it is used (2026-10-15)
+
+- Full bio: HACOF (both versions), FDE IEEE Access, Biocomputing, Loop Engineering, OpenClaw (`main.tex`), OS of AI Agents.
+- Short bio: FDE IEEE Software.
+- No bio, by design: the LAWS paper (blind review; a bio would reveal the author) and the OpenClaw arXiv copy (preprints don't use one).

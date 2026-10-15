@@ -43,10 +43,10 @@ Author: Muhammad Faisal Laiq (no institutional affiliation) — shmlaiq@gmail.co
 
 ## 7. Ethics & Compliance
 - [x] No human-subjects data, no primary data collection — paper is explicit about this in Section VI (Limitation #4)
-- [x] **AI-use disclosure added (2026-08-20).** Verified live against IEEE Access's own submission guidelines page (ieeeaccess.ieee.org/authors/submission-guidelines/), which requires: "The use of artificial intelligence (AI)–generated text in an article shall be disclosed in the acknowledgements section. The sections of the paper that use AI-generated text shall have a citation to the AI system used to generate the text." Disclosure now present in the Acknowledgments section of both paper.md and main.tex, naming Claude (Anthropic) and covering Sections I–VII. Re-verify this policy hasn't changed at actual submission time — it can move.
+- [x] **AI-use disclosure added (2026-08-20).** Verified live against IEEE Access's own submission guidelines page (ieeeaccess.ieee.org/authors/submission-guidelines/), which requires: "The use of artificial intelligence (AI)–generated text in an article shall be disclosed in the acknowledgements section. The sections of the paper that use AI-generated text shall have a citation to the AI system used to generate the text." Disclosure now present in the Acknowledgments section of both paper.md and main.tex, describing the tool as "an AI-LLM" (reworded 2026-10-15) and covering Sections I–VII. Re-verify this policy hasn't changed at actual submission time — it can move.
 
 ## 8. Final Build Check
-- [x] `pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex` — clean, 8 pages
+- [x] `pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex` — clean, 9 pages since the 2026-10-15 bio (was 8)
 - [x] `grep -c "^\\bibitem" main.bbl` → 17 (matches references.bib entry count)
 - [x] No "Citation undefined" or "Reference undefined" warnings in final log
 
@@ -60,3 +60,9 @@ These are honest, flagged limitations from the fact-checking pass — not blocke
 
 ## 10. Submission
 IEEE Access submits through IEEE Author Portal / ScholarOne. See https://ieeeaccess.ieee.org for current author guidelines and article processing charge information before submitting — venue requirements can change; verify against the live CFP at submission time.
+
+## 2026-10-15 Update
+- [x] **Author biography + photo added:** canonical bio from `papers/AUTHOR-BIO.md`, photo `author.jpg`. Email stays on page 1 only.
+- [x] **AI-use disclosure reworded:** "Claude (Anthropic)" replaced with "an AI-LLM" in main.tex and paper.md, per the author's standing rule. Scope, accountability and no-AI-author statements unchanged.
+- [ ] **AI-disclosure compliance risk (author's choice):** the disclosure names the tool only as "an AI-LLM". IEEE says "the AI system used shall be identified", so an editor may ask for the system name.
+- [x] Rebuilt: 0 errors, 9 pages.

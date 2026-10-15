@@ -29,3 +29,9 @@ Everything else — citation numbering, the core stats (22/311, Delta codename, 
 
 ## 5. Companion Version
 The full academic treatment — formal taxonomy justification, complete case analysis, 5 named limitations, 17 references — remains available at `papers/forward-deployed-engineer-ai-ecosystem/` if a reviewer or reader wants the deeper version.
+
+## 2026-10-15 Update
+- [x] **Short author bio (~55 words) + photo added**, condensed from `papers/AUTHOR-BIO.md` for the magazine format and approved by the author. Total now ≈2,185 words, still under the 4,200 cap.
+- [x] **AI-use disclosure reworded:** "Claude (Anthropic)" replaced with "an AI-LLM" in main.tex and paper.md, per the author's standing rule. Scope, accountability and no-AI-author statements unchanged.
+- [ ] **AI-disclosure compliance risk (author's choice):** the disclosure names the tool only as "an AI-LLM". IEEE says "the AI system used shall be identified", so an editor may ask for the system name.
+- [x] Rebuilt: 0 errors, still 3 pages.
